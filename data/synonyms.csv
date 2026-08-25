@@ -1,0 +1,467 @@
+id,name_type,name,name_bi
+Agapornis roseicollis,syn_name,Psittacus roseicollis,Psittacus roseicollis
+Anas platyrhynchos,syn_name,Anas oustaleti,Anas oustaleti
+Chlamydera maculata,syn_name,Calodera maculata,Calodera maculata
+Chloris chloris,syn_name,Carduelis chloris,Carduelis chloris
+Cinclosoma alisteri,syn_name,Cinclosoma cinnamomeum alisteri,Cinclosoma cinnamomeum
+Cinclosoma clarum,syn_name,Cinclosoma castanotum clarum,Cinclosoma castanotum
+Geophaps plumifera,syn_name,Petrophassa plumifera,Petrophassa plumifera
+Ixobrychus dubius,acc_name,Botaurus dubius,Botaurus dubius
+Ixobrychus dubius,syn_name,Ixobrychus dubius,Ixobrychus dubius
+Ixobrychus dubius,syn_name,Ixobrychus minutus dubius,Ixobrychus minutus
+Motacilla tschutschensis,syn_name,Motacilla flava tschutschensis,Motacilla flava
+Northiella narethae,syn_name,Northiella haematogaster narethae,Northiella haematogaster
+Northiella narethae,syn_name,Psephotus narethae,Psephotus narethae
+Psittacula eupatria,syn_name,Psittacus eupatria,Psittacus eupatria
+Psittacula eupatria,syn_name,Palaeornis eupatria,Palaeornis eupatria
+Psophodes leucogaster,acc_name,Psophodes nigrogularis,Psophodes nigrogularis
+Psophodes leucogaster,syn_name,Psophodes leucogaster,Psophodes leucogaster
+Spilopelia chinensis,syn_name,Streptopelia chinensis,Streptopelia chinensis
+Stercorarius parasiticus,syn_name,Larus parasiticus,Larus parasiticus
+Streptopelia roseogrisea,syn_name,Streptopelia risoria,Streptopelia risoria
+Acanthagenys rufogularis,syn_name,Acanthogenys rufogularis,Acanthogenys rufogularis
+Acanthagenys rufogularis,syn_name,Anthochaera rufogularis,Anthochaera rufogularis
+Acanthiza chrysorrhoa,syn_name,Saxicola chrysorrhoa,Saxicola chrysorrhoa
+Acanthiza pusilla,syn_name,Motacilla pusilla,Motacilla pusilla
+Accipiter cirrocephalus,acc_name,Tachyspiza cirrocephala,Tachyspiza cirrocephala
+Accipiter cirrocephalus,syn_name,Accipiter cirrocephalus,Accipiter cirrocephalus
+Accipiter cirrocephalus,syn_name,Sparvius cirrocephalus,Sparvius cirrocephalus
+Accipiter fasciatus,acc_name,Tachyspiza fasciata,Tachyspiza fasciata
+Accipiter fasciatus,syn_name,Accipiter fasciatus,Accipiter fasciatus
+Accipiter fasciatus,syn_name,Astur fasciatus,Astur fasciatus
+Accipiter novaehollandiae,acc_name,Tachyspiza novaehollandiae,Tachyspiza novaehollandiae
+Accipiter novaehollandiae,syn_name,Accipiter novaehollandiae,Accipiter novaehollandiae
+Accipiter novaehollandiae,syn_name,Falco novaehollandiae,Falco novaehollandiae
+Acridotheres tristis,syn_name,Acridotheres tristas,Acridotheres tristas
+Actitis hypoleucos,syn_name,Tringa hypoleucos,Tringa hypoleucos
+Aegotheles cristatus,syn_name,Caprimulgus cristatus,Caprimulgus cristatus
+Alisterus scapularis,syn_name,Psittacus scapularis,Psittacus scapularis
+Amytornis goyderi,syn_name,Amytis goyderi,Amytis goyderi
+Amytornis modestus,syn_name,Amytis modesta,Amytis modesta
+Amytornis purnelli,syn_name,Diaphorillas textilis purnelli,Diaphorillas textilis
+Amytornis striatus,syn_name,Dasyornis striatus,Dasyornis striatus
+Anas castanea,syn_name,Mareca castanea,Mareca castanea
+Anhinga novaehollandiae,syn_name,Plotus novaehollandiae,Plotus novaehollandiae
+Anseranas semipalmata,syn_name,Anas semipalmata,Anas semipalmata
+Antigone rubicunda,syn_name,Grus rubicunda,Grus rubicunda
+Antigone rubicunda,syn_name,Ardea rubicunda,Ardea rubicunda
+Aphelocephala leucopsis,syn_name,Xerophila leucopsis,Xerophila leucopsis
+Aphelocephala nigricincta,syn_name,Xerophila nigricincta,Xerophila nigricincta
+Aphelocephala pectoralis,syn_name,Xerophila pectoralis,Xerophila pectoralis
+Aprosmictus erythropterus,syn_name,Psittacus erythropterus,Psittacus erythropterus
+Apus pacificus,syn_name,Hirundo pacifica,Hirundo pacifica
+Aquila audax,syn_name,Vultur audax,Vultur audax
+Ardea alba,syn_name,Casmerodius albus,Casmerodius albus
+Ardea alba,syn_name,Egretta alba,Egretta alba
+Ardea intermedia,syn_name,Egretta intermedia,Egretta intermedia
+Ardea intermedia,syn_name,Mesophoyx intermedia,Mesophoyx intermedia
+Ardea intermedia,syn_name,Egretta intermedia intermedia,Egretta intermedia
+Ardea intermedia,syn_name,Ardea intermedia intermedia,Ardea intermedia
+Ardenna carneipes,syn_name,Puffinus carneipes,Puffinus carneipes
+Ardenna grisea,syn_name,Puffinus griseus,Puffinus griseus
+Ardenna grisea,syn_name,Procellaria grisea,Procellaria grisea
+Ardenna tenuirostris,syn_name,Puffinus tenuirostris,Puffinus tenuirostris
+Ardenna tenuirostris,syn_name,Procellaria tenuirostris,Procellaria tenuirostris
+Ardeotis australis,syn_name,Otis australis,Otis australis
+Artamus leucorynchus,acc_name,Artamus leucoryn,Artamus leucoryn
+Artamus leucorynchus,syn_name,Artamus leucorhynchus,Artamus leucorhynchus
+Artamus leucorynchus,syn_name,Artamus leucorynchus,Artamus leucorynchus
+Ashbyia lovensis,syn_name,Ephthianura lovensis,Ephthianura lovensis
+Aythya australis,syn_name,Aythya australis australis,Aythya australis
+Aythya australis,syn_name,Aythya australis extima,Aythya australis
+Aythya australis,syn_name,Nyroca australis,Nyroca australis
+Barnardius zonarius,syn_name,Platycercus zonarius,Platycercus zonarius
+Barnardius zonarius,syn_name,Psittacus zonarius,Psittacus zonarius
+Botaurus poiciloptilus,syn_name,Ardea poiciloptila,Ardea poiciloptila
+Bubulcus ibis,acc_name,Ardea ibis,Ardea ibis
+Bubulcus ibis,syn_name,Bubulcus ibis,Bubulcus ibis
+Bubulcus ibis,syn_name,Bubulcus ibis ibis,Bubulcus ibis
+Bubulcus ibis,syn_name,Bubulcus ibis seychellarum,Bubulcus ibis
+Bubulcus ibis,syn_name,Ardeola ibis seychellarum,Ardeola ibis
+Burhinus grallarius,syn_name,Charadrius grallarius,Charadrius grallarius
+Cacatua galerita,syn_name,Cacatura galerita,Cacatura galerita
+Cacatua galerita,syn_name,Psittacus galeritus,Psittacus galeritus
+Cacatua sanguinea,syn_name,Cacatura sanguinea,Cacatura sanguinea
+Cacatua tenuirostris,syn_name,Cacatura tenuirostris,Cacatura tenuirostris
+Cacatua tenuirostris,syn_name,Psittacus tenuirostris,Psittacus tenuirostris
+Cacomantis flabelliformis,syn_name,Cuculus flabelliformis,Cuculus flabelliformis
+Cacomantis variolosus,syn_name,Cuculus variolosus,Cuculus variolosus
+Cairina moschata,syn_name,Anas moschata,Anas moschata
+Calamanthus campestris,syn_name,Praticola campestris,Praticola campestris
+Calamanthus fuliginosus,syn_name,Anthus fuliginosus,Anthus fuliginosus
+Calidris acuminata,syn_name,Calidris cooperi,Calidris cooperi
+Calidris acuminata,syn_name,Totanus acuminatus,Totanus acuminatus
+Calidris falcinellus,syn_name,Limicola falcinellus,Limicola falcinellus
+Calidris ferruginea,syn_name,Calidris cooperi,Calidris cooperi
+Calidris melanotos,syn_name,Tringa melanotos,Tringa melanotos
+Calidris minuta,syn_name,Tringa minuta,Tringa minuta
+Calidris pugnax,syn_name,Philomachus pugnax,Philomachus pugnax
+Calidris pugnax,syn_name,Tringa pugnax,Tringa pugnax
+Calidris ruficollis,syn_name,Trynga ruficollis,Trynga ruficollis
+Calidris subminuta,syn_name,Tringa subminuta,Tringa subminuta
+Calidris subruficollis,syn_name,Tryngites subruficollis,Tryngites subruficollis
+Calidris subruficollis,syn_name,Tringa subruficollis,Tringa subruficollis
+Calidris tenuirostris,syn_name,Totanus tenuirostris,Totanus tenuirostris
+Caligavis chrysops,syn_name,Lichenostomus chrysops,Lichenostomus chrysops
+Caligavis chrysops,syn_name,Meliphaga chrysops,Meliphaga chrysops
+Callipepla californica,syn_name,Lophortyx californica,Lophortyx californica
+Callocephalon fimbriatum,syn_name,Psittacus fimbriatus,Psittacus fimbriatus
+Calyptorhynchus banksii,syn_name,Calyptorhynchus magnificus,Calyptorhynchus magnificus
+Calyptorhynchus lathami,syn_name,Psittacus lathami,Psittacus lathami
+Chalcites basalis,syn_name,Chrysococcyx basalis,Chrysococcyx basalis
+Chalcites basalis,syn_name,Cuculus basalis,Cuculus basalis
+Chalcites lucidus,syn_name,Chrysococcyx lucidus,Chrysococcyx lucidus
+Chalcites lucidus,syn_name,Cuculus lucidus,Cuculus lucidus
+Chalcites osculans,syn_name,Chrysococcyx osculans,Chrysococcyx osculans
+Chalcites osculans,syn_name,Misocalius osculans,Misocalius osculans
+Charadrius mongolus,syn_name,Charadrius mongolus stegmanni,Charadrius mongolus
+Charadrius mongolus,syn_name,Charadrius mongolus mongolus,Charadrius mongolus
+Charadrius veredus,syn_name,Eupoda veredus,Eupoda veredus
+Chenonetta jubata,syn_name,Anas jubata,Anas jubata
+Cheramoeca leucosterna,syn_name,Cheramoeca leucosternus,Cheramoeca leucosternus
+Chlidonias hybrida,syn_name,Chlidonias hybridus,Chlidonias hybridus
+Chlidonias leucopterus,syn_name,Chilidonias leucopterus,Chilidonias leucopterus
+Chlidonias leucopterus,syn_name,Sterna leucoptera,Sterna leucoptera
+Cincloramphus cruralis,acc_name,Megalurus cruralis,Megalurus cruralis
+Cincloramphus cruralis,syn_name,Cincloramphus cruralis,Cincloramphus cruralis
+Cincloramphus mathewsi,acc_name,Megalurus mathewsi,Megalurus mathewsi
+Cincloramphus mathewsi,syn_name,Cincloramphus mathewsi,Cincloramphus mathewsi
+Cinclosoma castanotum,syn_name,Cinclosoma castanotus,Cinclosoma castanotus
+Cinclosoma castanotum,syn_name,Cinclosoma castanotum castanotum,Cinclosoma castanotum
+Cinclosoma punctatum,syn_name,Turdus punctatus,Turdus punctatus
+Circus approximans,syn_name,Circus gouldi,Circus gouldi
+Circus approximans,syn_name,Circus approximans approximans,Circus approximans
+Circus approximans,syn_name,Circus approximans gouldi,Circus approximans
+Cladorhynchus leucocephalus,syn_name,Recurvirostra leucocephala,Recurvirostra leucocephala
+Climacteris rufus,syn_name,Climacteris rufa,Climacteris rufa
+Conopophila whitei,syn_name,Lacustroica whitei,Lacustroica whitei
+Corcorax melanorhamphos,acc_name,Corcorax melanoramphos,Corcorax melanoramphos
+Corcorax melanorhamphos,syn_name,Corcorax melanorhamphos,Corcorax melanorhamphos
+Cormobates leucophaea,syn_name,Cormobates leucophaeus,Cormobates leucophaeus
+Cormobates leucophaea,syn_name,Certhia leucophaea,Certhia leucophaea
+Coturnix ypsilophora,acc_name,Synoicus ypsilophorus ypsilophorus,Synoicus ypsilophorus
+Coturnix ypsilophora,syn_name,Coturnix ypsilophora,Coturnix ypsilophora
+Coturnix ypsilophora,syn_name,Coturnix ypsilophora ypsilophora,Coturnix ypsilophora
+Cracticus torquatus,syn_name,Cracticus argenteus,Cracticus argenteus
+Cygnus atratus,syn_name,Cygnus atractus,Cygnus atractus
+Cygnus atratus,syn_name,Anas atrata,Anas atrata
+Cygnus olor,syn_name,Anas olor,Anas olor
+Dasyornis broadbenti,syn_name,Sphenura broadbenti,Sphenura broadbenti
+Dendrocygna eytoni,syn_name,Leptotarsis eytoni,Leptotarsis eytoni
+Diomedea antipodensis,syn_name,Diomedea exulans antipodensis,Diomedea exulans
+Diomedea epomophora,syn_name,Diomedea epomophora epomophora,Diomedea epomophora
+Diomedea exulans,syn_name,Diomedea exulans exulans,Diomedea exulans
+Diomedea sanfordi,syn_name,Diomedea epomophora sanfordi,Diomedea epomophora
+Dromaius novaehollandiae,syn_name,Dromaius ater,Dromaius ater
+Dromaius novaehollandiae,syn_name,Dromaius novaehollandiae rothschildi,Dromaius novaehollandiae
+Egretta garzetta,syn_name,Ardea garzetta,Ardea garzetta
+Egretta novaehollandiae,syn_name,Ardea novaehollandiae,Ardea novaehollandiae
+Egretta novaehollandiae,syn_name,Egretta novaehollandiae parryi,Egretta novaehollandiae
+Egretta novaehollandiae,syn_name,Notophoyx novaehollandiae parryi,Notophoyx novaehollandiae
+Egretta novaehollandiae,syn_name,Egretta novaehollandiae novaehollandiae,Egretta novaehollandiae
+Egretta picata,syn_name,Ardea picata,Ardea picata
+Egretta sacra,syn_name,Ardea sacra,Ardea sacra
+Elanus axillaris,syn_name,Elanus notatus,Elanus notatus
+Elanus axillaris,syn_name,Falco axillaris,Falco axillaris
+Elseyornis melanops,syn_name,Charadrius melanops,Charadrius melanops
+Eolophus roseicapilla,syn_name,Eolephus roseicapillus,Eolephus roseicapillus
+Eolophus roseicapilla,syn_name,Eolophus roseicapillus,Eolophus roseicapillus
+Eolophus roseicapilla,syn_name,Cacatua roseicapilla,Cacatua roseicapilla
+Eolophus roseicapilla,syn_name,Kakatoe roseicapilla,Kakatoe roseicapilla
+Ephippiorhynchus asiaticus,syn_name,Xenorhynchus asiaticua,Xenorhynchus asiaticua
+Ephippiorhynchus asiaticus,syn_name,Xenorhynchus asiaticus,Xenorhynchus asiaticus
+Ephippiorhynchus asiaticus,syn_name,Mycteria asiatica,Mycteria asiatica
+Epthianura albifrons,syn_name,Acanthiza albifrons,Acanthiza albifrons
+Erythrogonys cinctus,syn_name,Charadrius cinctus,Charadrius cinctus
+Esacus magnirostris,syn_name,Burhinus magnirostris,Burhinus magnirostris
+Esacus magnirostris,syn_name,Burhinus giganteus,Burhinus giganteus
+Esacus magnirostris,syn_name,Oedicnemus magnirostris,Oedicnemus magnirostris
+Eudynamys orientalis,syn_name,Cuculus orientalis,Cuculus orientalis
+Eudyptes pachyrhynchus,syn_name,Eudyptes pachyrhynchus pachyrhynchus,Eudyptes pachyrhynchus
+Eudyptula minor,syn_name,Aptenodytes minor,Aptenodytes minor
+Eurostopodus mystacalis,syn_name,Eurostopodus mystacalis mystacalis,Eurostopodus mystacalis
+Eurostopodus mystacalis,syn_name,Caprimulgus mystacalis,Caprimulgus mystacalis
+Fregetta tropica,syn_name,Thalassidroma tropica,Thalassidroma tropica
+Fulmarus glacialoides,syn_name,Procellaria glacialoides,Procellaria glacialoides
+Gallinago hardwickii,syn_name,Scolopax hardwickii,Scolopax hardwickii
+Gavicalis virescens,syn_name,Lichenostomus virescens,Lichenostomus virescens
+Gelochelidon macrotarsa,syn_name,Sterna nilotica macrotarsa,Sterna nilotica
+Gelochelidon macrotarsa,syn_name,Sterna macrotarsa,Sterna macrotarsa
+Gelochelidon macrotarsa,syn_name,Gelochelidon nilotica macrotarsa,Gelochelidon nilotica
+Gelochelidon macrotarsa,syn_name,Gelochelidon nilotica normani,Gelochelidon nilotica
+Gelochelidon macrotarsa,syn_name,Gelochelidon nilotica cloatesi,Gelochelidon nilotica
+Geopelia placida,syn_name,Geopelia tranquilla,Geopelia tranquilla
+Gerygone fusca,syn_name,Psilopus fuscus,Psilopus fuscus
+Gerygone olivacea,syn_name,Psilopus olivaceus,Psilopus olivaceus
+Gliciphila melanops,syn_name,Phylidonyris melanops,Phylidonyris melanops
+Glossopsitta concinna,syn_name,Psittacus concinnus,Psittacus concinnus
+Grantiella picta,syn_name,Entomophila picta,Entomophila picta
+Grantiella picta,syn_name,Conopophila picta,Conopophila picta
+Haliaeetus leucogaster,acc_name,Icthyophaga leucogaster,Icthyophaga leucogaster
+Haliaeetus leucogaster,syn_name,Haliaeetus leucogaster,Haliaeetus leucogaster
+Haliaeetus leucogaster,syn_name,Falco leucogaster,Falco leucogaster
+Haliastur sphenurus,syn_name,Milvus sphenurus,Milvus sphenurus
+Halobaena caerulea,syn_name,Procellaria caerulea,Procellaria caerulea
+Hamirostra melanosternon,syn_name,Buteo melanosternon,Buteo melanosternon
+Heteroscenes pallidus,syn_name,Cuculus pallidus,Cuculus pallidus
+Heteroscenes pallidus,syn_name,Cacomantis pallidus,Cacomantis pallidus
+Heteroscenes pallidus,syn_name,Columba pallida,Columba pallida
+Hieraaetus morphnoides,syn_name,Aquila morphnoides,Aquila morphnoides
+Himantopus himantopus,syn_name,Charadrius himantopus,Charadrius himantopus
+Himantopus himantopus,syn_name,Himantopus himantopus himantopus,Himantopus himantopus
+Hirundapus caudacutus,syn_name,Hirundo caudacuta,Hirundo caudacuta
+Hydroprogne caspia,syn_name,Sterna caspia,Sterna caspia
+Hylacola cauta,syn_name,Hylacola cautus,Hylacola cautus
+Hylacola cauta,syn_name,Calamanthus cautus,Calamanthus cautus
+Hylacola pyrrhopygia,syn_name,Hylacola pyrrhopygius,Hylacola pyrrhopygius
+Hylacola pyrrhopygia,syn_name,Calamanthus pyrrhopygius,Calamanthus pyrrhopygius
+Hylacola pyrrhopygia,syn_name,Acanthiza pyrrhopygia,Acanthiza pyrrhopygia
+Hypotaenidia philippensis,syn_name,Rallus philippensis,Rallus philippensis
+Hypotaenidia philippensis,syn_name,Gallirallus philippensis,Gallirallus philippensis
+Irediparra gallinacea,syn_name,Parra gallinacea,Parra gallinacea
+Irediparra gallinacea,syn_name,Irediparra gallinacea gallinacea,Irediparra gallinacea
+Irediparra gallinacea,syn_name,Irediparra gallinacea novaeguineae,Irediparra gallinacea
+Irediparra gallinacea,syn_name,Irediparra gallinacea novaehollandiae,Irediparra gallinacea
+Irediparra gallinacea,syn_name,Irediparra gallinacea novaeguinae,Irediparra gallinacea
+Lathamus discolor,syn_name,Psittacus discolor,Psittacus discolor
+Leucocarbo atriceps,syn_name,Phalacrocorax atriceps,Phalacrocorax atriceps
+Leucocarbo atriceps,syn_name,Phalacrocorax atriceps atriceps,Phalacrocorax atriceps
+Lewinia pectoralis,syn_name,Rallus pectoralis,Rallus pectoralis
+Lichenostomus cratitius,syn_name,Meliphaga cratitius,Meliphaga cratitius
+Limosa lapponica,syn_name,Limosa lapponica anadyrensis,Limosa lapponica
+Lonchura oryzivora,syn_name,Padda oryzivora,Padda oryzivora
+Lophochroa leadbeateri,acc_name,Cacatua leadbeateri,Cacatua leadbeateri
+Lophochroa leadbeateri,syn_name,Cacatura leadbeateri,Cacatura leadbeateri
+Lophochroa leadbeateri,syn_name,Lophochroa leadbeateri,Lophochroa leadbeateri
+Lophochroa leadbeateri,syn_name,Plyctolophus leadbeateri,Plyctolophus leadbeateri
+Lophochroa leadbeateri,syn_name,Kakatoe leadbeateri,Kakatoe leadbeateri
+Lophoictinia isura,syn_name,Milvus isurus,Milvus isurus
+Lugensa brevirostris,acc_name,Aphrodroma brevirostris,Aphrodroma brevirostris
+Lugensa brevirostris,syn_name,Pterodroma brevirostris,Pterodroma brevirostris
+Lugensa brevirostris,syn_name,Lugensa brevirostris,Lugensa brevirostris
+Lugensa brevirostris,syn_name,Oestrelata kidderi,Oestrelata kidderi
+Lugensa brevirostris,syn_name,Procellaria brevirostris,Procellaria brevirostris
+Macronectes giganteus,syn_name,Procellaria gigantea,Procellaria gigantea
+Macronectes halli,syn_name,Macronectes giganteus halli,Macronectes giganteus
+Malacorhynchus membranaceus,syn_name,Anas membranacea,Anas membranacea
+Malurus cyaneus,syn_name,Motacilla cyanea,Motacilla cyanea
+Malurus splendens,syn_name,Saxicola splendens,Saxicola splendens
+Manorina melanotis,syn_name,Manorina flavigula melanotis,Manorina flavigula
+Manorina melanotis,syn_name,Myzantha melanotis,Myzantha melanotis
+Melithreptus affinis,syn_name,Eidopsarus affinis,Eidopsarus affinis
+Melithreptus lunatus,syn_name,Melithreptus lunatus lunatus,Melithreptus lunatus
+Melithreptus lunatus,syn_name,Certhia lunata,Certhia lunata
+Melithreptus validirostris,syn_name,Haematops validirostris,Haematops validirostris
+Melopsittacus undulatus,syn_name,Psittacus undulatus,Psittacus undulatus
+Microcarbo melanoleucos,syn_name,Phalacrocorax melanoleucos,Phalacrocorax melanoleucos
+Microcarbo melanoleucos,syn_name,Hydrocorax melanoleucos,Hydrocorax melanoleucos
+Milvus migrans,syn_name,Falco migrans,Falco migrans
+Morus serrator,syn_name,Pelecanus serrator,Pelecanus serrator
+Neophema chrysogaster,syn_name,Psittacus chrysogaster,Psittacus chrysogaster
+Neophema chrysostoma,syn_name,Psittacus chrysostomus,Psittacus chrysostomus
+Neophema elegans,syn_name,Nanodes elegans,Nanodes elegans
+Neophema petrophila,syn_name,Euphema petrophila,Euphema petrophila
+Neophema splendida,syn_name,Euphema splendida,Euphema splendida
+Neopsephotus bourkii,syn_name,Neophema bourki,Neophema bourki
+Neopsephotus bourkii,syn_name,Euphema bourkii,Euphema bourkii
+Neopsephotus bourkii,syn_name,Neophema bourkii,Neophema bourkii
+Nesoptilotis flavicollis,syn_name,Lichenostomus flavicollis,Lichenostomus flavicollis
+Nesoptilotis flavicollis,syn_name,Melithreptus flavicollis,Melithreptus flavicollis
+Nesoptilotis leucotis,syn_name,Lichenostomus leucotis,Lichenostomus leucotis
+Ninox boobook,syn_name,Strix boobook,Strix boobook
+Ninox connivens,syn_name,Falco connivens,Falco connivens
+Ninox novaeseelandiae,syn_name,Strix novaeseelandiae,Strix novaeseelandiae
+Ninox strenua,syn_name,Athene strenua,Athene strenua
+Northiella haematogaster,syn_name,Platycercus haematogaster,Platycercus haematogaster
+Numenius madagascariensis,syn_name,Scolopax madagascariensis,Scolopax madagascariensis
+Nycticorax caledonicus,syn_name,Ardea caledonica,Ardea caledonica
+Nymphicus hollandicus,syn_name,Psittacus hollandicus,Psittacus hollandicus
+Ocyphaps lophotes,syn_name,Geophaps lophotes,Geophaps lophotes
+Pachyptila belcheri,syn_name,Heteroprion belcheri,Heteroprion belcheri
+Pachyptila salvini,syn_name,Pachyptila vittata salvini,Pachyptila vittata
+Pachyptila salvini,syn_name,Pachyptila salvini salvini,Pachyptila salvini
+Pachyptila salvini,syn_name,Prion vittatus salvini,Prion vittatus
+Pachyptila turtur,syn_name,Procellaria turtur,Procellaria turtur
+Pachyptila vittata,syn_name,Pachyptila forsteri,Pachyptila forsteri
+Pachyptila vittata,syn_name,Procellaria forsteri,Procellaria forsteri
+Pachyptila vittata,syn_name,Procellaria vittata,Procellaria vittata
+Pagodroma nivea,syn_name,Procellaria nivea,Procellaria nivea
+Pandion haliaetus,syn_name,Falco haliaetus,Falco haliaetus
+Pardalotus punctatus,syn_name,Pipra punctata,Pipra punctata
+Pardalotus striatus,syn_name,Pipra striata,Pipra striata
+Parvipsitta porphyrocephala,syn_name,Glossopsitta porphyrocephala,Glossopsitta porphyrocephala
+Parvipsitta porphyrocephala,syn_name,Trichoglossus porphyrocephala,Trichoglossus porphyrocephala
+Parvipsitta pusilla,syn_name,Glossopsitta pusilla,Glossopsitta pusilla
+Parvipsitta pusilla,syn_name,Psittacus pusillus,Psittacus pusillus
+Pelagodroma marina,syn_name,Procellaria marina,Procellaria marina
+Pelecanoides urinatrix,syn_name,Pelecanoides urinator,Pelecanoides urinator
+Pelecanoides urinatrix,syn_name,Procellaria urinatrix,Procellaria urinatrix
+Peltohyas australis,syn_name,Eudromias australis,Eudromias australis
+Petrochelidon ariel,syn_name,Hirundo ariel,Hirundo ariel
+Petrochelidon nigricans,syn_name,Hirundo nigricans,Hirundo nigricans
+Pezoporus occidentalis,syn_name,Geopsittacus occidentalis,Geopsittacus occidentalis
+Pezoporus wallicus,syn_name,Psittacus wallicus,Psittacus wallicus
+Phalacrocorax carbo,syn_name,Phalacrocorax lucidus,Phalacrocorax lucidus
+Phalacrocorax carbo,syn_name,Pelecanus carbo,Pelecanus carbo
+Phalacrocorax carbo,syn_name,Halieus lucidus,Halieus lucidus
+Phalacrocorax carbo,syn_name,Phalacrocorax carbo lucidus,Phalacrocorax carbo
+Phalacrocorax fuscescens,syn_name,Hydrocorax fuscescens,Hydrocorax fuscescens
+Phalacrocorax sulcirostris,syn_name,Carbo sulcirostris,Carbo sulcirostris
+Phalacrocorax varius,syn_name,Pelecanus varius,Pelecanus varius
+Phalaropus lobatus,syn_name,Lobipes lobatus,Lobipes lobatus
+Phalaropus lobatus,syn_name,Charadrius rubricollis,Charadrius rubricollis
+Phalaropus lobatus,syn_name,Thinornis rubricollis,Thinornis rubricollis
+Phalaropus lobatus,syn_name,Tringa lobata,Tringa lobata
+Philemon corniculatus,syn_name,Philemon corniculatus ellioti,Philemon corniculatus
+Phoebetria fusca,syn_name,Diomedea fusca,Diomedea fusca
+Phylidonyris niger,syn_name,Phylidonyris nigra,Phylidonyris nigra
+Phylidonyris pyrrhopterus,syn_name,Phylidonyris pyrrhoptera,Phylidonyris pyrrhoptera
+Platycercus caledonicus,syn_name,Platycerus caledonicus,Platycerus caledonicus
+Platycercus caledonicus,syn_name,Psittacus caledonicus,Psittacus caledonicus
+Platycercus elegans,syn_name,Platycercus adelaidae,Platycercus adelaidae
+Platycercus elegans,syn_name,Platycerus elegans,Platycerus elegans
+Platycercus elegans,syn_name,Psittacus elegans,Psittacus elegans
+Platycercus elegans,syn_name,Platycercus elegans adelaidae,Platycercus elegans
+Platycercus eximius,syn_name,Platycerus eximius,Platycerus eximius
+Platycercus eximius,syn_name,Psittacus eximius,Psittacus eximius
+Plegadis falcinellus,syn_name,Plegadis falcinellus falcinellus,Plegadis falcinellus
+Plegadis falcinellus,syn_name,Tantalus falcinellus,Tantalus falcinellus
+Pluvialis fulva,syn_name,Pluvialis dominica fulva,Pluvialis dominica
+Pluvialis fulva,syn_name,Charadrius fulvus,Charadrius fulvus
+Podargus strigoides,syn_name,Caprimulgus strigoides,Caprimulgus strigoides
+Poliocephalus poliocephalus,syn_name,Podiceps poliocephalus,Podiceps poliocephalus
+Polytelis anthopeplus,syn_name,Palaeornis anthopeplus,Palaeornis anthopeplus
+Pomatostomus ruficeps,syn_name,Pomatorhinus ruficeps,Pomatorhinus ruficeps
+Pomatostomus superciliosus,syn_name,Pomatorhinus superciliosus,Pomatorhinus superciliosus
+Pomatostomus temporalis,syn_name,Pomatorhinus temporalis,Pomatorhinus temporalis
+Porphyrio porphyrio,syn_name,Porphyrio porphyrio porphyrio,Porphyrio porphyrio
+Porphyrio porphyrio,syn_name,Fulica porphyrio,Fulica porphyrio
+Psephotellus varius,syn_name,Psephotus varius,Psephotus varius
+Psephotus haematonotus,syn_name,Platycercus haematonotus,Platycercus haematonotus
+Psittacula krameri,syn_name,Psittacus krameri,Psittacus krameri
+Psittacula krameri,syn_name,Alexandrinus krameri,Alexandrinus krameri
+Psitteuteles versicolor,syn_name,Trichoglossus versicolor,Trichoglossus versicolor
+Psophodes cristatus,syn_name,Sphenostoma cristatum,Sphenostoma cristatum
+Psophodes occidentalis,syn_name,Sphenostoma cristatum occidentale,Sphenostoma cristatum
+Pterodroma inexpectata,syn_name,Procellaria inexpectata,Procellaria inexpectata
+Pterodroma leucoptera,syn_name,Pterodroma leucoptera caledonica,Pterodroma leucoptera
+Pterodroma leucoptera,syn_name,Pterodroma leucoptera leucoptera,Pterodroma leucoptera
+Pterodroma leucoptera,syn_name,Procellaria leucoptera,Procellaria leucoptera
+Pterodroma macroptera,syn_name,Pterodroma macroptera macroptera,Pterodroma macroptera
+Pterodroma macroptera,syn_name,Procellaria macroptera,Procellaria macroptera
+Pterodroma mollis,syn_name,Procellaria mollis,Procellaria mollis
+Pterodroma mollis,syn_name,Pterodroma dubia,Pterodroma dubia
+Pterodroma mollis,syn_name,Pterodroma mollis dubia,Pterodroma mollis
+Pterodroma mollis,syn_name,Pterodroma mollis mollis,Pterodroma mollis
+Ptilonorhynchus violaceus,syn_name,Pyrrhocorax violaceus,Pyrrhocorax violaceus
+Ptilotula fusca,syn_name,Lichenostomus fuscus,Lichenostomus fuscus
+Ptilotula keartlandi,syn_name,Lichenostomus keartlandi,Lichenostomus keartlandi
+Ptilotula keartlandi,syn_name,Ptilotis keartlandi,Ptilotis keartlandi
+Ptilotula keartlandi,syn_name,Meliphaga keartlandi,Meliphaga keartlandi
+Ptilotula ornata,syn_name,Lichenostomus ornatus,Lichenostomus ornatus
+Ptilotula ornata,syn_name,Ptilotis ornatus,Ptilotis ornatus
+Ptilotula ornata,syn_name,Meliphaga ornata,Meliphaga ornata
+Ptilotula penicillata,syn_name,Lichenostomus penicillatus,Lichenostomus penicillatus
+Ptilotula plumula,syn_name,Lichenostomus plumulus,Lichenostomus plumulus
+Puffinus gavia,syn_name,Procellaria gavia,Procellaria gavia
+Purnella albifrons,syn_name,Phylidonyris albifrons,Phylidonyris albifrons
+Purnella albifrons,syn_name,Glyciphila albifrons,Glyciphila albifrons
+Pyrrholaemus sagittatus,syn_name,Chthonicola sagittatus,Chthonicola sagittatus
+Pyrrholaemus sagittatus,syn_name,Sylvia sagittata,Sylvia sagittata
+Radjah radjah,syn_name,Tadorna radjah,Tadorna radjah
+Rostratula australis,syn_name,Rhynchaea australis,Rhynchaea australis
+Sericornis frontalis,syn_name,Acanthiza frontalis,Acanthiza frontalis
+Smicrornis brevirostris,syn_name,Psilopus brevirostris,Psilopus brevirostris
+Spatula rhynchotis,syn_name,Anas rhynchotis,Anas rhynchotis
+Spatula rhynchotis,syn_name,Anas rhynchotis rhynchotis,Anas rhynchotis
+Spatula rhynchotis,syn_name,Anas rhynchotis variegata,Anas rhynchotis
+Spatula rhynchotis,syn_name,Spatula variegata,Spatula variegata
+Spatula rhynchotis,syn_name,Spatula rhynchotis rhynchotis,Spatula rhynchotis
+Spatula rhynchotis,syn_name,Spatula rhynchotis variegata,Spatula rhynchotis
+Stercorarius antarcticus,syn_name,Catharacta skua antarctica,Catharacta skua
+Stercorarius antarcticus,syn_name,Catharacta antarctica,Catharacta antarctica
+Stercorarius maccormicki,syn_name,Catharacta maccormicki,Catharacta maccormicki
+Stercorarius pomarinus,syn_name,Lestris pomarinus,Lestris pomarinus
+Sterna striata,syn_name,Sterna striata aucklandorna,Sterna striata
+Sterna striata,syn_name,Sterna striata incerta,Sterna striata
+Sterna striata,syn_name,Sterna striata striata,Sterna striata
+Sterna striata,syn_name,Sterna striata aucklandorum,Sterna striata
+Sternula nereis,syn_name,Sterna nereis,Sterna nereis
+Stictonetta naevosa,syn_name,Anas naevosa,Anas naevosa
+Stiltia isabella,syn_name,Glareola isabella,Glareola isabella
+Stipiturus malachurus,syn_name,Muscicapa malachura,Muscicapa malachura
+Sugomel niger,syn_name,Certhionyx niger,Certhionyx niger
+Sugomel niger,syn_name,Myzomela nigra,Myzomela nigra
+Sugomel niger,syn_name,Sugomel nigrum,Sugomel nigrum
+Tadorna tadornoides,syn_name,Anas tadornoides,Anas tadornoides
+Thalassarche bulleri,syn_name,Diomedea bulleri,Diomedea bulleri
+Thalassarche carteri,syn_name,Thalassogeron carteri,Thalassogeron carteri
+Thalassarche carteri,syn_name,Thalassarche chlororhynchos carteri,Thalassarche chlororhynchos
+Thalassarche cauta,syn_name,Diomedea cauta,Diomedea cauta
+Thalassarche cauta,syn_name,Diomedea cauta cauta,Diomedea cauta
+Thalassarche chrysostoma,syn_name,Diomedea chrysostoma,Diomedea chrysostoma
+Thalassarche impavida,syn_name,Thalassarche melanophris impavida,Thalassarche melanophris
+Thalassarche melanophris,syn_name,Diomedea melanophris,Diomedea melanophris
+Thalassarche melanophris,syn_name,Thalassarche melanophrys,Thalassarche melanophrys
+Thalassarche melanophris,syn_name,Thalassarche melanophris melanophris,Thalassarche melanophris
+Thalassarche salvini,syn_name,Thalassarche cauta salvini,Thalassarche cauta
+Thalassarche salvini,syn_name,Thalassogeron salvini,Thalassogeron salvini
+Thalassarche steadi,acc_name,Thalassarche cauta steadi,Thalassarche cauta
+Thalassarche steadi,syn_name,Thalassarche steadi,Thalassarche steadi
+Thalassoica antarctica,syn_name,Procellaria antarctica,Procellaria antarctica
+Thinornis cucullatus,syn_name,Charadrius cucullatus,Charadrius cucullatus
+Threskiornis spinicollis,syn_name,Ibis spinicollis,Ibis spinicollis
+Todiramphus pyrrhopygius,syn_name,Todirhamphus pyrrhopygia,Todirhamphus pyrrhopygia
+Todiramphus pyrrhopygius,syn_name,Halcyon pyrrhopygia,Halcyon pyrrhopygia
+Todiramphus sanctus,syn_name,Halcyon sancta,Halcyon sancta
+Todiramphus sanctus,syn_name,Todirhamphus sanctus,Todirhamphus sanctus
+Tribonyx mortierii,syn_name,Gallinula mortierii,Gallinula mortierii
+Tribonyx ventralis,syn_name,Gallinula ventralis,Gallinula ventralis
+Trichoglossus haematodus,syn_name,Trichoglossus haematodus brooki,Trichoglossus haematodus
+Tringa brevipes,syn_name,Heteroscelus brevipes,Heteroscelus brevipes
+Tringa brevipes,syn_name,Totanus brevipes,Totanus brevipes
+Tringa nebularia,syn_name,Scolopax nebularia,Scolopax nebularia
+Tringa stagnatilis,syn_name,Totanus stagnatilis,Totanus stagnatilis
+Turnix pyrrhothorax,syn_name,Hemipodius pyrrhothorax,Hemipodius pyrrhothorax
+Turnix varius,syn_name,Turnix varia,Turnix varia
+Turnix velox,syn_name,Hemipodius velox,Hemipodius velox
+Tyto javanica,syn_name,Strix javanica,Strix javanica
+Tyto longimembris,syn_name,Strix longimembris,Strix longimembris
+Tyto novaehollandiae,syn_name,Strix novaehollandiae,Strix novaehollandiae
+Vanellus tricolor,syn_name,Charadrius tricolor,Charadrius tricolor
+Xenus cinereus,syn_name,Tringa cinereus,Tringa cinereus
+Xenus cinereus,syn_name,Tringa cinerea,Tringa cinerea
+Xenus cinereus,syn_name,Scolopax cinerea,Scolopax cinerea
+Zanda funerea,syn_name,Calyptorhynchus funereus,Calyptorhynchus funereus
+Zanda funerea,syn_name,Psittacus funereus,Psittacus funereus
+Zapornia pusilla,syn_name,Porzana pusilla,Porzana pusilla
+Zapornia pusilla,syn_name,Rallus pusillus,Rallus pusillus
+Zapornia tabuensis,syn_name,Porzana tabuensis,Porzana tabuensis
+Zapornia tabuensis,syn_name,Porzana tabuensis edwardi,Porzana tabuensis
+Zapornia tabuensis,syn_name,Porzana tabuensis richardsoni,Porzana tabuensis
+Zapornia tabuensis,syn_name,Porzana tabuensis tabuensis,Porzana tabuensis
+Zapornia tabuensis,syn_name,Rallus tabuensis,Rallus tabuensis
+Zapornia tabuensis,syn_name,Zapornia tabuensis edwardi,Zapornia tabuensis
+Zapornia tabuensis,syn_name,Zapornia tabuensis plumbea,Zapornia tabuensis
+Zapornia tabuensis,syn_name,Zapornia tabuensis richardsoni,Zapornia tabuensis
+Zapornia tabuensis,syn_name,Zapornia tabuensis tabuensis,Zapornia tabuensis
+Amytornis whitei,manual,Amytornis striatus whitei,Amytornis striatus
+Petroica boodang,manual,Petroica multicolor boodang,Petroica multicolor
+Ardea plumifera,syn_name,Egretta intermedia plumifera,Egretta intermedia
+Ardea plumifera,syn_name,Herodias plumiferus,Herodias plumiferus
+Ardea plumifera,syn_name,Ardea intermedia plumifera,Ardea intermedia
+Corcorax melanorhamphos,syn_name,Corcorax melanoramphos,Corcorax melanoramphos
+Corcorax melanorhamphos,syn_name,Coracia melanorhamphos,Coracia melanorhamphos
+Myiagra cyanoleuca,syn_name,Platyrhynchos cyanoleucus,Platyrhynchos cyanoleucus
+Myiagra inquieta,syn_name,Turdus inquietus,Turdus inquietus
+Zoothera lunulata,syn_name,Turdus lunulata,Turdus lunulata
+Pachyptila desolata,syn_name,Procellaria desolata,Procellaria desolata
+Pachyptila desolata,syn_name,Pachyptila banksi,Pachyptila banksi
+Pachyptila desolata,syn_name,Pachyptila desolata banksi,Pachyptila desolata
+Pachyptila desolata,syn_name,Heteroprion desolatus alter,Heteroprion desolatus
+Pachyptila desolata,syn_name,Pachyptila desolata alter,Pachyptila desolata
+Pachyptila desolata,syn_name,Pachyptila desolata desolata,Pachyptila desolata
+Pandion cristatus,acc_name,Pandion haliaetus cristatus,Pandion haliaetus
+Pandion cristatus,syn_name,Pandion cristatus,Pandion cristatus
+Pandion cristatus,syn_name,Buteo cristatus,Buteo cristatus
+Puffinus huttoni,syn_name,Puffinus reinholdi huttoni,Puffinus reinholdi

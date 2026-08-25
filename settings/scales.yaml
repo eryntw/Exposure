@@ -1,0 +1,50 @@
+################################
+# current project
+Exposure:
+  extent:
+    extent_vector: aus_imcra_prov_dissolve
+    extent_filt_col: ~
+    extent_filt_level: ~
+    extent_buffer: 0
+    extent_time: P50Y
+    region_taxa: sa_br_dissolve
+  grain:
+    res_x: 90
+    res_y: 90
+    grain_time: P1Y
+    taxonomic: species
+    
+# Other project (scale the same as the above unless specified)
+RecExtract:
+  extent:
+    extent_vector: ~
+    extent_buffer: ~
+    extent_time: ~
+    region_taxa: ~
+  grain:
+    res_x: ~
+    res_y: ~
+    grain_time: ~
+    taxonomic: ~
+  store:
+    store: "_targets"
+    
+Status:
+  extent:
+    
+envPIA_b:
+  aoi:
+    aoi_vector: pia
+    aoi_filt_col: boundary
+    aoi_filt_level: 1
+    vec_buffer: 0
+    aoi_buffer: 50000
+  grain:
+    res_x: 30
+    res_y: 30
+    grain_time: P1Y
+    taxonomic: 
+      - species
+      - subspecies
+    
+    
