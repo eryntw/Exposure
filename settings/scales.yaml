@@ -29,9 +29,6 @@ RecExtract:
   store:
     store: "_targets"
     
-Status:
-  extent:
-    
 envPIA_b:
   aoi:
     aoi_vector: pia
@@ -46,5 +43,7 @@ envPIA_b:
     taxonomic: 
       - species
       - subspecies
-    
-    
+
+Status:
+  extent:
+    extent_vector:

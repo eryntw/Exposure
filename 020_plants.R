@@ -17,10 +17,11 @@ tar_source("../Status/R/setup")
 # targets -------
 
 concern <- tar_read(concern, store = tars$setup$store)
+rec_summary_pilot <- tar_read(rec_summary_pilot, store = tars$setup$store)
 
 tar_plan(
   
-  ## Austraits
+  ## Austraits ------
   
   tar_target(
     austraits,
@@ -46,6 +47,20 @@ tar_plan(
                  "plant_physical_defence_structures"
       )
     )
-  )
+  ),
+  
+  # Bind RecExtract data ------
+  tar_target(
+    bound_planttraits,
+    bind_traits_to_rec_summary(
+      plant_trait_raw = plant_trait_raw,
+      rec_summary_pilot = rec_summary_pilot,
+      select_cols = rec_summary_pilot |>
+        dplyr::select(dplyr::matches("_simpson(_note)?$|_prop_")) |>
+        names()
+    )
+  ),
+  
+  # Add rules to trait value ------
   
 )

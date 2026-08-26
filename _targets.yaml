@@ -8,16 +8,6 @@ RecExtract:
   RecExtr:
     script: ../RecExtract/010_RecExtr.R
     store: ../../out/RecExtract/_targets/RecExtr
-Status:
-  setup:
-    script: ../Status/010_setup.R
-    store: ../../out/Status/__/setup
-  iucn:
-    script: ../Status/020_iucn.R
-    store: ../../out/Status/__/iucn
-  sdmstats:
-    script: ../Status/030_sdmstats.R
-    store: ../../out/Status/__/sdmstats
 envPIA_b:
   setup:
     script: ../envPIA_b/010_setup.R
@@ -37,3 +27,13 @@ envPIA_b:
   release:
     script: ../envPIA_b/090_release.R
     store: ../../out/envPIA_b/aus_imcra_prov_dissolve______0__P50Y__sa_br_dissolve/30__30__P1Y__species--subspecies/pia__boundary__1__0__50000/release
+Status:
+  setup:
+    script: ../Status/010_setup.R
+    store: ../../out/Status/____0__P50Y__sa_br_dissolve/90__90__P1Y__species/setup
+  iucn:
+    script: ../Status/020_iucn.R
+    store: ../../out/Status/____0__P50Y__sa_br_dissolve/90__90__P1Y__species/iucn
+  sdmstats:
+    script: ../Status/030_sdmstats.R
+    store: ../../out/Status/____0__P50Y__sa_br_dissolve/90__90__P1Y__species/sdmstats

@@ -22,23 +22,22 @@ tars_local <- envTargets::make_tars(settings = envFunc::extract_scale("Exposure"
                                     save_yaml = FALSE,
                                     store_base = store_base)
 
-## Other projects
-
+## Other projects ------
 tars_rec <- envTargets::make_tars(settings = envFunc::extract_scale("RecExtract"),
                                   project_base = fs::path("..", "RecExtract"),
                                   local = FALSE,
                                   list_names = "store")
-
-tars_status <- envTargets::make_tars(settings = envFunc::extract_scale("Status"),
-                                     project_base = fs::path("..", "Status"),
-                                     local = FALSE)
 
 tars_pia <- envTargets::make_tars(settings = envFunc::extract_scale("envPIA_b"),
                                    project_base = fs::path("..", "envPIA_b"),
                                    local = FALSE,
                                    list_names = c("extent", "grain", "aoi"))
 
-tars = c(tars_local, tars_rec, tars_status, tars_pia)
+tars_status <- envTargets::make_tars(settings = envFunc::extract_scale("Status"),
+                                     project_base = fs::path("..", "Status"),
+                                     local = FALSE)
+
+tars = c(tars_local, tars_rec, tars_pia, tars_status)
 
 envTargets::write_tars(tars)
 
