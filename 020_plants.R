@@ -42,25 +42,32 @@ tar_plan(
                  "dispersal_syndrome",
                  "plant_growth_form",
                  "leaf_mass_per_area",
+                 "seedling_establishment_conditions",
                  "recruitment_time",
+                 "pollination_system",
                  "pollination_syndrome",
                  "plant_physical_defence_structures"
       )
     )
   ),
   
-  # Bind RecExtract data ------
+  # Export matrix for cross-project impute workflow
   tar_target(
-    bound_planttraits,
-    bind_traits_to_rec_summary(
-      plant_trait_raw = plant_trait_raw,
-      rec_summary_pilot = rec_summary_pilot,
-      select_cols = rec_summary_pilot |>
-        dplyr::select(dplyr::matches("_simpson(_note)?$|_prop_")) |>
-        names()
-    )
+    plant_trait_matrix_export,
+    {
+      out_path <- fs::path(
+        "/mnt/envshare/dev/tony/Trait_impute",
+        "data",
+        "plant_exposure_trait.csv"
+      )
+      readr::write_csv(plant_trait_raw$matrix, out_path)
+      out_path
+    },
+    format = "file"
   ),
   
-  # Add rules to trait value ------
+  # Read imputed matrix and bind RecExtract data
+
+  ## Prepare plant traits ------
   
 )

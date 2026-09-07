@@ -59,7 +59,7 @@ tar_plan(
     rec_summary_pilot, # Species Level for Trait Mapping
     {
       rec_summary_combined <- readRDS(rec_summary_path) |> 
-        combine_named_list_prefixed(c("taxa", "common"))
+        combine_named_list_prefixed(id_cols = "taxa")
       dplyr::left_join(concern, rec_summary_combined, 
                        by = c("species" = "taxa")) # 23 spp have no summary
     }

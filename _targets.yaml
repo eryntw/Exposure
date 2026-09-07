@@ -37,3 +37,6 @@ Status:
   sdmstats:
     script: ../Status/030_sdmstats.R
     store: ../../out/Status/____0__P50Y__sa_br_dissolve/90__90__P1Y__species/sdmstats
+  regcont:
+    script: ../Status/040_regcont.R
+    store: ../../out/Status/____0__P50Y__sa_br_dissolve/90__90__P1Y__species/regcont

@@ -1,0 +1,74 @@
+# settings/rule_coding_types.yaml
+#
+# Schema for rule_plant.csv. Each coding_type lists the rules-table
+# columns it reads. Manual overrides and fallback logic are handled
+# upstream by trait_resolvers (see R/trait_resolvers.R) and are NOT
+# part of this schema — by the time a row is scored, source_var
+# already points at either a raw column or a pre-resolved _resolved
+# column with all merging logic already applied.
+
+coding_types:
+
+  simpson_threshold:
+    description: >
+      Reads a pre-computed Simpson diversity index column. Score is the
+      raw Simpson value, signed by direction.
+    required_cols: [source_var]
+
+  categorical_match:
+    description: >
+      Binary score: 1 if the resolved value is in match_values
+      (pipe-delimited list), 0 otherwise. Signed by direction.
+    required_cols: [source_var, match_values]
+
+  categorical_tier:
+    description: >
+      Ordinal score based on which tier group the value falls into.
+      tier_labels, tier_match, and tier_score are pipe-delimited and
+      positionally aligned. Within a tier's tier_match slot, multiple
+      acceptable values are semicolon-delimited. The reserved value
+      "else" in tier_match matches anything not caught by an earlier
+      tier. Final score = matched tier's tier_score x direction.
+    required_cols: [source_var, tier_labels, tier_match, tier_score]
+
+  numeric_passthrough:
+    description: >
+      Raw numeric value from source_var, signed by direction. If
+      source_var has multiple semicolon-delimited values in one cell,
+      agg_fn collapses them to one number first.
+    required_cols: [source_var]
+    optional_cols: [agg_fn]
+
+  numeric_threshold:
+    description: >
+      Binary score: 1 if source_var satisfies threshold_op against
+      threshold_val, 0 otherwise. Signed by direction.
+    required_cols: [source_var, threshold_op, threshold_val]
+
+  proportion_tier:
+    description: >
+      Ordinal score based on which numeric range a proportion column
+      falls into. tier_breaks (ascending numeric breakpoints),
+      tier_labels, and tier_score are pipe-delimited and positionally
+      aligned — n breakpoints define n+1 tiers.
+    required_cols: [source_var, tier_breaks, tier_labels, tier_score]
+
+  string_count:
+    description: >
+      Counts occurrences of pattern within the source_var string. Score
+      is the raw count, signed by direction.
+    required_cols: [source_var, pattern]
+
+  regex_match:
+    description: >
+      Binary score: 1 if source_var matches the regex in pattern, 0
+      otherwise. Signed by direction.
+    required_cols: [source_var, pattern]
+
+  cross_reference:
+    description: >
+      Not a scoring rule — marks this row as a duplicate of another
+      stressor's rule set. Resolved by resolve_cross_references()
+      before scoring, which copies all rows matching reference_stressor
+      + reference_trait and relabels them under this row's stressor.
+    required_cols: [reference_stressor, reference_trait]
