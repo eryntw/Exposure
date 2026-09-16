@@ -4,6 +4,9 @@ setup:
 plants:
   script: ../Exposure/020_plants.R
   store: ../../../dev/out/Exposure/aus_imcra_prov_dissolve______0__P50Y__sa_br_dissolve/90__90__P1Y__species/plants
+animaldb:
+  script: ../Exposure/030_animaldb.R
+  store: ../../../dev/out/Exposure/aus_imcra_prov_dissolve______0__P50Y__sa_br_dissolve/90__90__P1Y__species/animaldb
 RecExtract:
   RecExtr:
     script: ../RecExtract/010_RecExtr.R

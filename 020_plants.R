@@ -29,6 +29,8 @@ tar_plan(
     format = "file"
   ),
   
+  ## RAW -------
+  
   tar_target(
     plant_trait_raw,
     extract_austraits_matrix(
@@ -66,8 +68,10 @@ tar_plan(
     format = "file"
   ),
   
-  # Read imputed matrix and bind RecExtract data
+  ## IMPUTED ------
 
-  ## Prepare plant traits ------
+  ## PROCESSED ------
+  
+  ## SCORED ------
   
 )

@@ -32,20 +32,42 @@ tar_plan(
   tar_target(fpath_bp, update_boundary_path(fpath_usg, 2), format = "file"),
   
   ## Read ----
-  tar_target(concern,
-             dplyr::bind_rows(
-               readRDS(cpath_usg),
-               readRDS(cpath_bp)
-             ) |>
-               dplyr::distinct() |> 
-               classify_species(search_term_col = "species")),
+  tar_target(
+    concern, ## Species only
+    dplyr::bind_rows(
+      readRDS(cpath_usg),
+      readRDS(cpath_bp)
+    ) |>
+      dplyr::select(-aoi_cont, -taxa) |> 
+      dplyr::distinct() |> 
+      classify_species(search_term_col = "species")
+  ),
   
-  tar_target(final,
-             dplyr::bind_rows(
-               readRDS(fpath_usg),
-               readRDS(fpath_bp)
-             ) |>
-               dplyr::distinct()),
+  tar_target(
+    concern_subsp_epbc, ## Subspecies listed in EPBC only
+    concern |>
+      dplyr::mutate(.word_count = lengths(strsplit(taxa, "\\s+"))) |>
+      dplyr::add_count(Genus, Species, name = ".gs_n") |>
+      dplyr::filter(.word_count > 2, epbc == TRUE)
+  ),
+  
+  tar_target(
+    final,
+    dplyr::bind_rows(
+      readRDS(fpath_usg),
+      readRDS(fpath_bp)
+    ) |>
+      dplyr::select(-taxa) |> 
+      dplyr::distinct() 
+  ),
+  
+  tar_target(
+    final_subsp_epbc,
+    final |>
+      dplyr::mutate(.word_count = lengths(strsplit(taxa, "\\s+"))) |>
+      dplyr::add_count(Genus, Species, name = ".gs_n") |>
+      dplyr::filter(.word_count > 2, epbc == TRUE)
+  ),
   
   ## Spatial data from RecExtract ------
   
