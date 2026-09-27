@@ -43,7 +43,7 @@ clean_exp_df <- function(df,
                          select = NULL,
                          require_genus_species = TRUE) {
   
-  out <- df
+  out <- readr::type_convert(df) # guess column type
   commoncol <- dplyr::enquo(commoncol)
   taxacol   <- dplyr::enquo(taxacol)
   select    <- rlang::enquo(select)

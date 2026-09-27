@@ -2,7 +2,7 @@
 #' Each function takes the bound table and returns it with ONE new column
 #' added — the fully-resolved value for that TraitValue, ready to be
 #' scored by a single coding_type with no further merging logic needed.
-plan_trait_resolvers <- list(
+plan_trait_resolver <- list(
   
   seedbank_persistence = \(data) {
     data |>

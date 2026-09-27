@@ -38,51 +38,45 @@ tar_plan(
       readRDS(cpath_usg),
       readRDS(cpath_bp)
     ) |>
-      dplyr::select(-aoi_cont, -taxa) |> 
-      dplyr::distinct() |> 
+      dplyr::select(-aoi_cont, -taxa, -common_vals) |>
+      dplyr::distinct() |>
       classify_species(search_term_col = "species")
   ),
-  
+
   tar_target(
     concern_subsp_epbc, ## Subspecies listed in EPBC only
-    concern |>
+    dplyr::bind_rows(
+      readRDS(cpath_usg),
+      readRDS(cpath_bp)
+    ) |>
       dplyr::mutate(.word_count = lengths(strsplit(taxa, "\\s+"))) |>
-      dplyr::add_count(Genus, Species, name = ".gs_n") |>
-      dplyr::filter(.word_count > 2, epbc == TRUE)
+      dplyr::filter(.word_count > 2, epbc == TRUE) |> 
+      dplyr::distinct()
   ),
-  
+
   tar_target(
-    final,
+    final, ## Full final df including all species and subspecies (taxa)
     dplyr::bind_rows(
       readRDS(fpath_usg),
       readRDS(fpath_bp)
     ) |>
-      dplyr::select(-taxa) |> 
-      dplyr::distinct() 
+      dplyr::distinct()
   ),
-  
-  tar_target(
-    final_subsp_epbc,
-    final |>
-      dplyr::mutate(.word_count = lengths(strsplit(taxa, "\\s+"))) |>
-      dplyr::add_count(Genus, Species, name = ".gs_n") |>
-      dplyr::filter(.word_count > 2, epbc == TRUE)
-  ),
-  
+
   ## Spatial data from RecExtract ------
-  
+
   tar_target(
     rec_summary_path,
     fs::path(tars$RecExtract$RecExtr$store, "objects", "rec_summary"),
     format = "file"
   ),
-  
+
   tar_target(
     rec_summary_pilot, # Species Level for Trait Mapping
     {
-      rec_summary_combined <- readRDS(rec_summary_path) |> 
+      rec_summary_combined <- readRDS(rec_summary_path) |>
         combine_named_list_prefixed(id_cols = "taxa")
-      dplyr::left_join(concern, rec_summary_combined, 
+      dplyr::left_join(concern, rec_summary_combined,
                        by = c("species" = "taxa")) # 23 spp have no summary
     }
   )

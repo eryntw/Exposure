@@ -39,7 +39,7 @@ tar_plan(
         post_fn = get_birdbase,
         select = c(
           dplyr::any_of(c("Brd2", "NestType", "Mig", "NestSbs")),
-          dplyr::contains("Wt")
+          dplyr::matches("Wt|Diet")
         )
       )
   ),
@@ -68,10 +68,10 @@ tar_plan(
         select  = c(
           dplyr::any_of(c(
             "wingspan_reported_mid_all", "wingspan_predicted_global",
-            "wingspan_predicted_order", "wingspan_hanzab_mid_point")),
+            "wingspan_predicted_order", "wingspan_hanzab_mid_point",
+            "wing_length_cm_AVONET")),
           dplyr::matches("Trophic|Habitat.Density|Migration|
-                           Primary.Lifestyle|Secondary1|
-                           Wing.Length|Mass_")
+                           Primary.Lifestyle|Secondary1|Mass_|Lifestyle")
         )
       )
   ),
@@ -87,7 +87,7 @@ tar_plan(
         clean_names_case = "upper_camel",
         post_fn = get_ausbird,
         select = c(
-          dplyr::matches("UrbanLands|Agricultural|NestLocationGround")
+          dplyr::matches("Urban|Agricultural|NestLocationGround|NestLocationHollow")
         )
       )
   ),
@@ -99,8 +99,7 @@ tar_plan(
       clean_exp_df(
         select = c(
           commoncol = "English",
-          dplyr::contains("Diet"),
-          dplyr::any_of("Noctornal")
+          dplyr::matches("Diet|ForStrat|Nocturnal")
         )
       )
   ),
@@ -115,7 +114,7 @@ tar_plan(
     traitdata::elton_mammals |> 
       clean_exp_df(
         select = c(
-          dplyr::matches("Diet|Activity")
+          dplyr::matches("Diet|Activity|Forstrat.Value|BodyMass")
         )
       )
   ),
@@ -129,7 +128,7 @@ tar_plan(
           dplyr::any_of(c("DietBreadth", "HabitatBreadth", 
                           "LitterSize", "LittersPerYear", "InterbirthInterval_d",
                           "TrophicLevel", "DispersalAge_d", "Terrestriality",
-                          "AgeatFirstBirth_d"))
+                          "AgeatFirstBirth_d", "AdultBodyMass_g"))
         )
       )
   ),
@@ -147,7 +146,25 @@ tar_plan(
         clean_names = TRUE,
         clean_names_case = "upper_camel",
         select = c(
-          dplyr::matches("habitat|Diet|Foraging|BodyMass|Litters")
+          dplyr::matches("habitat|Diet|Foraging|BodyMass|Litters|Active")
+        )
+      )
+  ),
+  
+  ########################
+  ## Amphibian database ----
+  ########################
+  
+  # amphibio
+  tar_target(
+    amphibio,
+    traitdata::amphibio |> 
+      clean_exp_df(
+        select = c(
+          dplyr::any_of(c("Body_mass_g",
+                          "Reproductive_output_y",
+                          "Diu", "Noc", "Crepu", 
+                          "Ter", "Arthro", "Vert"))
         )
       )
   ),
@@ -199,16 +216,18 @@ tar_plan(
   tar_target(
     animaldb,
     concern |>
+      dplyr::filter(ala_kingdom == "Animalia") |> 
       join_database_(birdbase, prefix = "bb_", syn_db = syn_db) |>
       join_database_(avistep, prefix = "avis_", syn_db = syn_db) |>
       join_database_(wingspan, prefix = "ws_", syn_db = syn_db) |>
-      join_database_(ausbird, prefix = "bub_", syn_db = syn_db) |> 
+      join_database_(ausbird, prefix = "aub_", syn_db = syn_db) |> 
       join_database_(elt_bird, prefix = "eltb_", syn_db = syn_db) |>
       join_database_(elt_mml, prefix = "eltm_", syn_db = syn_db) |>
       join_database_(pantheria, prefix = "pan_", syn_db = syn_db) |>
       join_database_(reptrait, prefix = "rep_", syn_db = syn_db) |>
       join_database_(iucn_mjHB, prefix = "iucn_", syn_db = syn_db) |>
-      join_database_(climate_desert_prop, prefix = "clim_", syn_db = syn_db)
+      join_database_(climate_desert_prop, prefix = "clim_", syn_db = syn_db) |> 
+      join_database_(amphibio, prefix = "amp_", syn_db = syn_db)
   )
 )
 

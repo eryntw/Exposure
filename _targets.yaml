@@ -7,6 +7,9 @@ plants:
 animaldb:
   script: ../Exposure/030_animaldb.R
   store: ../../../dev/out/Exposure/aus_imcra_prov_dissolve______0__P50Y__sa_br_dissolve/90__90__P1Y__species/animaldb
+animals:
+  script: ../Exposure/040_animals.R
+  store: ../../../dev/out/Exposure/aus_imcra_prov_dissolve______0__P50Y__sa_br_dissolve/90__90__P1Y__species/animals
 RecExtract:
   RecExtr:
     script: ../RecExtract/010_RecExtr.R
