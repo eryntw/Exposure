@@ -26,7 +26,7 @@ tar_plan(
   tar_target(
     animal_traits_resolved,
     resolve_animal_traits(animaldb) |> 
-      dplyr::select(dplyr::matches("_resolved$|_lit$")),
+      dplyr::mutate(dplyr::across(everything(), as.character))
   ),
   
   # Construct mtable for imputation:
@@ -37,9 +37,9 @@ tar_plan(
     animal_mtable_path,
     create_or_update_mtable_animal(
       animal_traits_resolved,
-      path = fs::path("data", "animal_mtable.csv"),
+      path = fs::path("data", "animal_mtable.csv")
     ),
-    format = "file",
+    format = "file"
   ),
   
   ## IMPUTED ------
@@ -47,16 +47,15 @@ tar_plan(
     animal_mtable,
     readr::read_csv(
       animal_mtable_path,
-      col_types = readr::cols(.default = readr::col_character()),
-      show_col_types = FALSE
-    ),
+      col_types = readr::cols(.default = "c")
+    )
   ),
   
   tar_target(
     animal_traits_final,
     apply_manual_overrides_animal(animal_traits_resolved, 
                                   animal_mtable, 
-                                  id_col = "species"),
+                                  id_col = "species")
   ),
 
   ## SCORED ------

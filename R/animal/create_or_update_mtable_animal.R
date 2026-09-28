@@ -32,8 +32,7 @@ create_or_update_mtable_animal <- function(
   ]
   
   current <- animal_traits_resolved |>
-    dplyr::select(dplyr::all_of(c(id_col, context_cols, cols_with_na))) |>
-    dplyr::mutate(dplyr::across(dplyr::all_of(cols_with_na), as.character))
+    dplyr::select(dplyr::all_of(c(id_col, context_cols, cols_with_na)))
   
   if (!fs::file_exists(path)) {
     readr::write_csv(current, path)
@@ -43,8 +42,7 @@ create_or_update_mtable_animal <- function(
   
   existing <- readr::read_csv(
     path,
-    col_types = readr::cols(.default = readr::col_character()),
-    show_col_types = FALSE
+    col_types = readr::cols(.default = readr::col_character())
   )
   
   metadata_cols <- c(id_col, context_cols)

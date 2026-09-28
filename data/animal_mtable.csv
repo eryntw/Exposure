@@ -1,0 +1,182 @@
+species,ala_class,ala_order,ala_vernacular_name,epbc,hb_lit,dispersal_lit,breed_freq_resolved,structure_refuge_resolved,oldgrowth_lit,connectivity_resolved,burrow_resolved,nest_sbs_resolved,ground_nest_resolved,ground_forage_resolved,bodymass_resolved,flight_height_resolved,bird_wingload_resolved,wingload_resolved,lake_effect_resolved,activity_resolved,ubag_tolerance_resolved,plant_diet_resolved,trophic_resolved
+Crinia riparia,Amphibia,Anura,Streambank Froglet,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,0.46,No exposure,NA,0,Low,NA,NA,NA,NA
+Pseudophryne bibronii,Amphibia,Anura,Bibron's Toadlet,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,1.19,No exposure,NA,0,Low,nocturnal,NA,NA,NA
+Crinia parinsignifera,Amphibia,Anura,Eastern Sign-bearing Froglet,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,0.66,No exposure,NA,0,Low,NA,NA,NA,NA
+Limnodynastes fletcheri,Amphibia,Anura,Barking Frog,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,11.34,No exposure,NA,0,Low,NA,NA,NA,NA
+Bettongia lesueur,Mammalia,Diprotodontia,Burrowing Bettong,NA,NA,NA,3,NA,NA,NA,NA,NA,NA,100,1500,No exposure,NA,0,Low,nocturnal,NA,High,NA
+Dasyurus geoffroii,Mammalia,Dasyuromorphia,Chuditch,TRUE,NA,NA,1,NA,NA,NA,NA,NA,NA,100,1100,No exposure,NA,0,Low,nocturnal,NA,NA,Lv4
+Hydrurga leptonyx,Mammalia,Carnivora,Leopard Seal,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,360000,No exposure,NA,0,Low,diurnal,NA,NA,Lv3
+Myrmecobius fasciatus,Mammalia,Dasyuromorphia,Numbat,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,471.5,No exposure,NA,0,Low,diurnal,NA,NA,Lv4
+Perameles bougainville,Mammalia,Peramelemorphia,Western Barred Bandicoot,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,226,No exposure,NA,0,Low,nocturnal,NA,Low,Lv3
+Petrogale xanthopus,Mammalia,Diprotodontia,Yellow-footed Rock-wallaby,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,8500,No exposure,NA,0,Low,nocturnal,NA,High,Lv2
+Pseudomys australis,Mammalia,Rodentia,Plains Rat,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,65,No exposure,NA,0,Low,nocturnal,NA,High,NA
+Sminthopsis psammophila,Mammalia,Dasyuromorphia,Sandhill Dunnart,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,33.5,No exposure,NA,0,Low,nocturnal,NA,NA,Lv4
+Trichosurus vulpecula,Mammalia,Diprotodontia,Common Brushtail Possum,NA,NA,NA,1.5,NA,NA,NA,NA,High,NA,30,2650,No exposure,NA,0,Low,nocturnal,NA,High,Lv2
+Acrobates pygmaeus,Mammalia,Diprotodontia,Feathertail Glider,NA,NA,NA,2,NA,NA,NA,NA,High,NA,30,12,No exposure,NA,0,Low,nocturnal,NA,Low,Lv3
+Bettongia penicillata,Mammalia,Diprotodontia,Brush-tailed Bettong,TRUE,NA,NA,3,NA,NA,NA,NA,NA,NA,100,1300,No exposure,NA,0,Low,nocturnal,NA,High,NA
+Chalinolobus picatus,Mammalia,Chiroptera,Little Pied Bat,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,5.1,NA,NA,NA,Low,nocturnal,NA,NA,NA
+Leporillus conditor,Mammalia,Rodentia,Greater Stick-nest Rat,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,350,No exposure,NA,0,Low,nocturnal,NA,High,Lv2
+Macrotis lagotis,Mammalia,Peramelemorphia,Bilby,TRUE,NA,NA,4,NA,NA,NA,NA,NA,NA,100,1350,No exposure,NA,0,Low,nocturnal,NA,Low,Lv3
+Notomys fuscus,Mammalia,Rodentia,Dusky Hopping-mouse,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,100,35,No exposure,NA,0,Low,nocturnal,NA,High,Lv3
+Phascogale calura,Mammalia,Dasyuromorphia,Red-tailed Phascogale,TRUE,NA,NA,1,NA,NA,NA,NA,High,NA,30,51.5,No exposure,NA,0,Low,nocturnal,NA,NA,Lv3
+Ozimops ridei,Mammalia,Chiroptera,Ride's Free-tailed Bat,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,12.5,NA,NA,NA,Moderate,nocturnal,NA,NA,Lv4
+Acanthiza iredalei,Aves,Passeriformes,Slender-billed Thornbill,NA,NA,NA,NA,0,NA,NA,0,High,0,50,6,no,437.87042534877,437.87042534877,Low,diurnal,Low,Low,Lv4
+Actitis hypoleucos,Aves,Charadriiformes,Common Sandpiper,NA,NA,NA,NA,0,NA,1,0,High,1,50,48,mod,1498.12870692251,1498.12870692251,Moderate,diurnal,Moderate,Low,Lv4
+Amytornis merrotsyi,Aves,Passeriformes,Short-tailed Grasswren,TRUE,NA,NA,NA,0,NA,NA,NA,Low,0,100,19.6,no,567.966343906462,567.966343906462,Low,diurnal,Low,Medium,Lv3
+Amytornis textilis,Aves,Passeriformes,Western Grasswren,NA,NA,NA,NA,0,NA,NA,0,High,0,80,23,no,706.273949379516,706.273949379516,Low,diurnal,Low,Medium,Lv3
+Anhinga novaehollandiae,Aves,Pelecaniformes,Australasian Darter,NA,NA,NA,NA,0,NA,NA,0,High,0,0,1480.1,mod,19597.1082227141,19597.1082227141,High,diurnal,High,NA,Lv4
+Aphelocephala leucopsis,Aves,Passeriformes,Southern Whiteface,TRUE,NA,NA,NA,0,NA,NA,0,NA,0,80,12.3,no,634.344045208795,634.344045208795,Low,diurnal,High,Medium,Lv4
+Aphelocephala pectoralis,Aves,Passeriformes,Chestnut-breasted Whiteface,NA,NA,NA,NA,0,NA,NA,0,High,0,100,9,no,414.430951731743,414.430951731743,Low,diurnal,Low,Medium,Lv3
+Ardeotis australis,Aves,Gruiformes,Australian Bustard,NA,NA,NA,NA,0,NA,NA,0,Low,1,80,4182.4,high,54214.4230295883,54214.4230295883,Moderate,diurnal,High,Medium,Lv3
+Arenaria interpres,Aves,Charadriiformes,Ruddy Turnstone,TRUE,NA,NA,1,0,NA,1,0,Low,1,100,136,mod,2528.66469090388,2528.66469090388,Moderate,diurnal,Low,Low,Lv4
+Biziura lobata,Aves,Anseriformes,Musk Duck,NA,NA,NA,NA,0,NA,NA,0,NA,1,0,1928.5,no,8585.29090726958,8585.29090726958,High,diurnal,High,Low,Lv4
+Bubulcus ibis,Aves,Ciconiiformes,Cattle Egret,NA,NA,NA,3,0,NA,1,0,Moderate,0,70,366,mod,12661.9819288264,12661.9819288264,Moderate,diurnal,High,NA,Lv4
+Burhinus grallarius,Aves,Charadriiformes,Bush Stone-curlew,NA,NA,NA,2,0,NA,NA,0,Low,1,80,648.1,mod,12070.1855157286,12070.1855157286,Low,diurnal,High,Low,Lv4
+Calamanthus campestris,Aves,Passeriformes,Rufous Fieldwren,NA,NA,NA,NA,0,NA,NA,0,Low,0,80,13.9,no,474.029621274876,474.029621274876,Low,diurnal,Low,Low,Lv4
+Calidris acuminata,Aves,Charadriiformes,Sharp-tailed Sandpiper,TRUE,NA,NA,NA,0,NA,1,0,NA,1,80,66.1,mod,1847.14453465489,1847.14453465489,Moderate,diurnal,Low,Low,Lv4
+Calidris alba,Aves,Charadriiformes,Sanderling,NA,NA,NA,2,0,NA,1,0,Low,1,100,51.7,mod,1584.09551460174,1584.09551460174,Moderate,diurnal,Low,Low,Lv4
+Calidris canutus,Aves,Charadriiformes,Red Knot,TRUE,NA,NA,NA,0,NA,1,0,Low,1,100,141.9,mod,2882.57060694954,2882.57060694954,Moderate,diurnal,Low,Low,Lv4
+Calidris ferruginea,Aves,Charadriiformes,Curlew Sandpiper,TRUE,NA,NA,NA,0,NA,1,NA,NA,1,50,58.1,mod,1827.51320780529,1827.51320780529,Moderate,diurnal,Low,Low,Lv4
+Calidris ruficollis,Aves,Charadriiformes,Red-necked Stint,NA,NA,NA,1,0,NA,1,0,Low,1,50,26.8,mod,1122.59996000849,1122.59996000849,Low,diurnal,Low,Low,Lv4
+Calidris subminuta,Aves,Charadriiformes,Long-toed Stint,NA,NA,NA,NA,0,NA,1,0,Low,1,50,30.2,mod,1124.12907982977,1124.12907982977,Low,diurnal,Low,Low,Lv4
+Cereopsis novaehollandiae,Aves,Anseriformes,Cape Barren Goose,NA,NA,NA,NA,0,NA,NA,0,Low,1,90,3560,low,37568.7100204335,37568.7100204335,Moderate,diurnal,Moderate,High,Lv2
+Charadrius bicinctus,Aves,Charadriiformes,Double-banded Plover,NA,NA,NA,2,0,NA,1,0,Low,1,60,59.4,mod,1839.58347389064,1839.58347389064,Moderate,diurnal,Low,Low,Lv4
+Charadrius leschenaultii,Aves,Charadriiformes,Greater Sand Plover,TRUE,NA,NA,1,0,NA,1,0,Low,1,100,74.8,mod,2765.45302032675,2765.45302032675,Moderate,diurnal,Low,NA,Lv4
+Charadrius mongolus,Aves,Charadriiformes,Lesser Sand Plover,TRUE,NA,NA,1,0,NA,1,0,Moderate,1,60,64,mod,2341.44259324971,2341.44259324971,Moderate,diurnal,Low,NA,Lv4
+Charadrius veredus,Aves,Charadriiformes,Oriental Plover,NA,NA,NA,NA,0,NA,1,NA,NA,1,100,95,mod,2559.05167894758,2559.05167894758,Moderate,diurnal,Low,Low,Lv4
+Chlidonias leucopterus,Aves,Charadriiformes,White-winged Black Tern,NA,NA,NA,NA,0,NA,1,0,Low,0,30,54.2,high,3843.40197597146,3843.40197597146,Moderate,diurnal,Low,NA,Lv4
+Cladorhynchus leucocephalus,Aves,Charadriiformes,Banded Stilt,NA,NA,NA,NA,0,NA,NA,0,Low,1,0,216,mod,4662.02771106986,4662.02771106986,Moderate,diurnal,Low,Low,Lv4
+Climacteris affinis,Aves,Passeriformes,White-browed Treecreeper,NA,NA,NA,NA,1,NA,NA,NA,NA,0,20,21.7,no,1028.25977670997,1028.25977670997,Low,diurnal,Low,NA,Lv4
+Corcorax melanorhamphos,Aves,Passeriformes,White-winged Chough,NA,NA,NA,NA,0,NA,NA,0,NA,0,90,364,low,9673.27250180292,9673.27250180292,Moderate,diurnal,High,Low,Lv3
+Daphoenositta chrysoptera,Aves,Passeriformes,Varied Sittella,NA,NA,NA,NA,0,NA,NA,0,NA,0,0,11.7,no,906.865448695761,906.865448695761,Low,diurnal,High,NA,Lv4
+Egretta garzetta,Aves,Ciconiiformes,Little Egret,NA,NA,NA,NA,0,NA,1,0,Moderate,0,30,312,mod,12767.1252883085,12767.1252883085,Moderate,diurnal,Moderate,NA,Lv4
+Egretta sacra,Aves,Ciconiiformes,Eastern Reef Egret,NA,NA,NA,NA,0,NA,NA,NA,Moderate,1,20,502,mod,13935.6951619128,13935.6951619128,Low,diurnal,Moderate,NA,Lv4
+Emblema pictum,Aves,Passeriformes,Painted Finch,NA,NA,NA,NA,0,NA,NA,0,Low,1,100,10.4,low,426.422987157539,426.422987157539,Low,diurnal,Low,High,Lv2
+Falco hypoleucos,Aves,Falconiformes,Grey Falcon,TRUE,NA,NA,NA,0,NA,NA,0,NA,0,40,457.2,mod,10757.6491488723,10757.6491488723,Moderate,diurnal,Low,NA,Lv4
+Falco peregrinus,Aves,Falconiformes,Peregrine Falcon,NA,NA,NA,1,0,NA,1,0,Low,0,20,760,high,11411.4748384575,11411.4748384575,Moderate,diurnal,High,NA,Lv4
+Falco subniger,Aves,Falconiformes,Black Falcon,NA,NA,NA,NA,0,NA,2,0,Moderate,0,40,776,high,15767.6269680607,15767.6269680607,Moderate,diurnal,Moderate,NA,Lv4
+Falcunculus frontatus,Aves,Passeriformes,Crested Shrike-tit,NA,NA,NA,NA,0,NA,NA,0,NA,0,0,27.9,low,1523.18649115234,1523.18649115234,Low,diurnal,High,Low,Lv4
+Gallinago hardwickii,Aves,Charadriiformes,Latham's Snipe,TRUE,NA,NA,NA,0,NA,1,0,Low,1,100,151.3,mod,3292.27246271423,3292.27246271423,Moderate,diurnal,Moderate,Low,Lv4
+Gerygone fusca,Aves,Passeriformes,Western Gerygone,NA,NA,NA,NA,0,NA,NA,0,High,0,10,5.4,no,585.461835628263,585.461835628263,Low,diurnal,High,NA,Lv4
+Grantiella picta,Aves,Passeriformes,Painted Honeyeater,TRUE,NA,NA,2,0,NA,1,0,NA,0,0,21.5,low,593.133585073441,593.133585073441,Low,diurnal,High,High,Lv2
+Haematopus fuliginosus,Aves,Charadriiformes,Sooty Oystercatcher,NA,NA,NA,NA,0,NA,NA,0,Low,1,100,819,low,12906.4022610388,12906.4022610388,Low,diurnal,Moderate,NA,Lv4
+Haematopus longirostris,Aves,Charadriiformes,Australian Pied Oystercatcher,NA,NA,NA,NA,0,NA,NA,0,Low,1,100,613.9,low,10124.0470937217,10124.0470937217,Low,diurnal,Moderate,NA,Lv4
+Haliaeetus leucogaster,Aves,Accipitriformes,White-bellied Sea-eagle,NA,NA,NA,NA,0,NA,NA,0,Moderate,0,30,2827,high,53992.3737636562,53992.3737636562,Moderate,diurnal,High,NA,Lv4
+Hamirostra melanosternon,Aves,Accipitriformes,Black-breasted Buzzard,NA,NA,NA,NA,0,NA,2,0,NA,0,33,1196,high,27283.5990502519,27283.5990502519,Low,diurnal,Low,NA,Lv4
+Hieraaetus morphnoides,Aves,Accipitriformes,Little Eagle,NA,NA,NA,2,0,NA,2,0,NA,0,70,775.1,high,19879.5498001951,19879.5498001951,Low,diurnal,High,NA,Lv4
+Hirundapus caudacutus,Aves,Apodiformes,White-throated Needletail,NA,NA,NA,NA,0,NA,1,0,NA,0,0,95.5,high,2072.86715185931,2072.86715185931,Low,diurnal,Moderate,NA,Lv4
+Larus dominicanus,Aves,Charadriiformes,Kelp Gull,NA,NA,NA,NA,0,NA,1,0,Low,1,50,952.4,no,17688.8754681214,17688.8754681214,Moderate,diurnal,Moderate,NA,Lv4
+Lichenostomus cratitius,Aves,Passeriformes,Purple-gaped Honeyeater,NA,NA,NA,NA,0,NA,NA,0,High,0,0,20.3,low,1231.77818273003,1231.77818273003,Low,diurnal,Low,Medium,Lv3
+Limosa lapponica,Aves,Charadriiformes,Bar-tailed Godwit,TRUE,NA,NA,1,0,NA,1,0,Low,1,50,291.7,mod,5010.29133572284,5010.29133572284,Moderate,diurnal,Low,Low,Lv4
+Limosa limosa,Aves,Charadriiformes,Black-tailed Godwit,TRUE,NA,NA,NA,0,NA,1,0,Low,1,50,288.4,mod,5764.74387218021,5764.74387218021,Moderate,diurnal,Low,Low,Lv4
+Melanodryas cucullata,Aves,Passeriformes,Hooded Robin,TRUE,NA,NA,NA,0,NA,NA,0,NA,0,100,21.1,no,1393.5574692001,1393.5574692001,Low,diurnal,Low,Low,Lv4
+Myiagra inquieta,Aves,Passeriformes,Restless Flycatcher,NA,NA,NA,NA,0,NA,1,0,NA,0,25,20.9,low,1787.14373497202,1787.14373497202,Low,diurnal,High,NA,Lv4
+Neophema chrysostoma,Aves,Psittaciformes,Blue-winged Parrot,TRUE,NA,NA,NA,1,NA,1,0,Moderate,0,60,46.1,mod,1403.48578386229,1403.48578386229,Low,diurnal,High,High,Lv2
+Neophema elegans,Aves,Psittaciformes,Elegant Parrot,NA,NA,NA,NA,1,NA,NA,0,NA,0,60,43.4,low,1476.52525112891,1476.52525112891,Low,diurnal,Moderate,High,Lv2
+Neophema petrophila,Aves,Psittaciformes,Rock Parrot,NA,NA,NA,2,1,NA,NA,1,Low,1,50,53.2,low,1625.96285993794,1625.96285993794,Low,diurnal,Moderate,High,Lv2
+Neophema splendida,Aves,Psittaciformes,Scarlet-chested Parrot,NA,NA,NA,NA,1,NA,NA,0,NA,0,20,38.6,low,1597.46010910322,1597.46010910322,Low,diurnal,Low,High,Lv2
+Ninox connivens,Aves,Strigiformes,Barking Owl,NA,NA,NA,NA,1,NA,NA,0,Moderate,0,20,578,mod,16716.5277902007,16716.5277902007,Moderate,nocturnal,High,NA,Lv4
+Numenius madagascariensis,Aves,Charadriiformes,Eastern Curlew,TRUE,NA,NA,NA,0,NA,1,0,Low,1,80,792,mod,11606.2697161511,11606.2697161511,Moderate,diurnal,Low,Low,Lv4
+Numenius phaeopus,Aves,Charadriiformes,Whimbrel,NA,NA,NA,NA,0,NA,1,0,Low,1,60,364.6,mod,8567.10154822157,8567.10154822157,Moderate,diurnal,Low,Low,Lv4
+Oxyura australis,Aves,Anseriformes,Blue-billed Duck,NA,NA,NA,NA,0,NA,2,0,Low,0,0,798,low,4440.49545471496,4440.49545471496,High,diurnal,High,Medium,Lv3
+Pachycephala inornata,Aves,Passeriformes,Gilbert's Whistler,NA,NA,NA,NA,0,NA,NA,0,High,0,0,30.8,no,1820.23355824497,1820.23355824497,Low,diurnal,Low,Low,Lv4
+Pedionomus torquatus,Aves,Charadriiformes,Plains Wanderer,TRUE,NA,NA,2,0,NA,NA,0,Low,1,100,62.5,mod,1187.23747487729,1187.23747487729,Low,diurnal,Low,Medium,Lv3
+Phaps histrionica,Aves,Columbiformes,Flock Bronzewing,NA,NA,NA,NA,0,NA,NA,NA,NA,1,60,289,mod,5832.60299328765,5832.60299328765,Low,diurnal,Low,High,Lv2
+Philemon citreogularis,Aves,Passeriformes,Little Friarbird,NA,NA,NA,2,0,NA,2,0,NA,0,0,60.6,low,3311.60837896086,3311.60837896086,Low,diurnal,High,Medium,Lv2
+Platalea flavipes,Aves,Ciconiiformes,Yellow-billed Spoonbill,NA,NA,NA,NA,0,NA,1,0,Moderate,0,0,1741.3,high,24382.2141131676,24382.2141131676,Moderate,diurnal,Moderate,Low,Lv4
+Plectorhyncha lanceolata,Aves,Passeriformes,Striped Honeyeater,NA,NA,NA,NA,0,NA,NA,0,High,0,0,40.6,low,2097.13505086916,2097.13505086916,Low,diurnal,High,High,Lv2
+Plegadis falcinellus,Aves,Ciconiiformes,Glossy Ibis,NA,NA,NA,NA,0,NA,1,0,High,0,50,626.6,high,11649.8462332477,11649.8462332477,Moderate,diurnal,Moderate,NA,Lv4
+Pluvialis fulva,Aves,Charadriiformes,Pacific Golden Plover,NA,NA,NA,NA,0,NA,1,0,Low,1,80,134.9,mod,2674.77866916168,2674.77866916168,Moderate,diurnal,Moderate,Low,Lv4
+Podiceps cristatus,Aves,Podicipediformes,Great Crested Grebe,NA,NA,NA,2,0,NA,1,0,Low,0,0,731,no,7017.16805801279,7017.16805801279,High,diurnal,High,NA,Lv4
+Polytelis alexandrae,Aves,Psittaciformes,Princess Parrot,TRUE,NA,NA,NA,1,NA,NA,0,NA,0,0,103.7,mod,4039.78747609349,4039.78747609349,Low,diurnal,Low,High,Lv2
+Rostratula australis,Aves,Charadriiformes,Australian Painted Snipe,TRUE,NA,NA,NA,0,NA,NA,0,Low,1,50,121,low,3996.16183306637,3996.16183306637,Moderate,diurnal,High,Low,Lv3
+Stagonopleura guttata,Aves,Passeriformes,Diamond Firetail,TRUE,NA,NA,NA,0,NA,NA,0,High,0,80,17.6,low,752.0813872894,752.0813872894,Low,diurnal,High,High,Lv2
+Sterna hirundo,Aves,Charadriiformes,Common Tern,NA,NA,NA,NA,0,NA,1,0,Low,1,0,129.2,high,5225.18078740482,5225.18078740482,Moderate,diurnal,Low,NA,Lv4
+Stictonetta naevosa,Aves,Anseriformes,Freckled Duck,NA,NA,NA,NA,0,NA,NA,0,Low,0,0,903.3,mod,7974.42452550181,7974.42452550181,Moderate,diurnal,Low,High,Lv2
+Tringa glareola,Aves,Charadriiformes,Wood Sandpiper,NA,NA,NA,NA,0,NA,1,0,Low,1,50,62.1,mod,1923.7648848534,1923.7648848534,Moderate,diurnal,Moderate,NA,Lv4
+Tringa nebularia,Aves,Charadriiformes,Common Greenshank,TRUE,NA,NA,NA,0,NA,1,0,Low,1,40,187,mod,4716.61578280762,4716.61578280762,Moderate,diurnal,Low,NA,Lv4
+Tringa stagnatilis,Aves,Charadriiformes,Marsh Sandpiper,NA,NA,NA,NA,0,NA,1,0,Low,1,40,77.5,mod,3123.99567617624,3123.99567617624,Moderate,diurnal,Low,Low,Lv4
+Turnix varius,Aves,Turniciformes,Painted Button-quail,NA,NA,NA,NA,0,NA,2,0,Low,1,100,90.2,low,1453.98029820956,1453.98029820956,Low,diurnal,Low,High,Lv2
+Zoothera lunulata,Aves,Passeriformes,Bassian Thrush,NA,NA,NA,NA,0,NA,NA,0,Moderate,0,100,130,no,3193.75652396987,3193.75652396987,Low,diurnal,High,Low,Lv4
+Acanthiza reguloides,Aves,Passeriformes,Buff-rumped Thornbill,NA,NA,NA,NA,0,NA,NA,0,High,0,30,7.7,no,560.035598800137,560.035598800137,Low,diurnal,High,Low,Lv4
+Amytornis striatus,Aves,Passeriformes,Striated Grasswren,NA,NA,NA,NA,0,NA,NA,0,Low,0,100,19.6,no,602.135722477964,602.135722477964,Low,diurnal,Low,Medium,Lv3
+Coracina papuensis,Aves,Passeriformes,White-bellied Cuckoo-shrike,NA,NA,NA,NA,0,NA,1,0,NA,0,20,63.5,low,4374.96091190138,4374.96091190138,Low,diurnal,High,Medium,Lv4
+Entomyzon cyanotis,Aves,Passeriformes,Blue-faced Honeyeater,NA,NA,NA,NA,0,NA,NA,0,Moderate,0,10,105.3,low,4498.13081821235,4498.13081821235,Low,diurnal,High,Low,Lv3
+Lophoictinia isura,Aves,Accipitriformes,Square-tailed Kite,NA,NA,NA,NA,0,NA,1,0,NA,0,0,579.4,high,26449.4522511441,26449.4522511441,Low,diurnal,Moderate,NA,Lv4
+Manorina melanotis,Aves,Passeriformes,Black-eared Miner,TRUE,NA,NA,NA,0,NA,NA,NA,High,0,30,54,low,2826.41414562039,2826.41414562039,Low,diurnal,Low,Low,Lv4
+Microeca fascinans,Aves,Passeriformes,Jacky Winter,NA,NA,NA,NA,0,NA,NA,0,NA,0,50,14.5,no,1087.97022110997,1087.97022110997,Low,diurnal,High,NA,Lv4
+Mirafra javanica,Aves,Passeriformes,Horsfield's Bushlark,NA,NA,NA,NA,0,NA,2,0,Low,1,100,23,mod,879.277660768226,879.277660768226,Low,diurnal,High,Medium,Lv3
+Oriolus sagittatus,Aves,Passeriformes,Olive-backed Oriole,NA,NA,NA,2,0,NA,1,0,High,0,10,95.2,low,3701.98252222961,3701.98252222961,Low,diurnal,Low,Medium,Lv2
+Pachycephala rufogularis,Aves,Passeriformes,Red-lored Whistler,TRUE,NA,NA,NA,0,NA,NA,0,High,0,60,36.6,no,2082.58292661763,2082.58292661763,Low,diurnal,Low,Low,Lv4
+Petroica phoenicea,Aves,Passeriformes,Flame Robin,NA,NA,NA,NA,0,NA,1,0,NA,0,80,13,low,971.399961013303,971.399961013303,Low,diurnal,High,NA,Lv4
+Polytelis anthopeplus,Aves,Psittaciformes,Regent Parrot,TRUE,NA,NA,NA,1,NA,2,0,NA,0,0,170,mod,4670.52754439092,4670.52754439092,Low,diurnal,High,High,Lv2
+Pomatostomus temporalis,Aves,Passeriformes,Grey-crowned Babbler,NA,NA,NA,NA,0,NA,NA,0,NA,0,40,75,low,2323.64062089633,2323.64062089633,Low,diurnal,High,Low,Lv4
+Turnix pyrrhothorax,Aves,Turniciformes,Red-chested Button-quail,NA,NA,NA,NA,0,NA,2,0,Low,1,100,45.7,mod,683.882625041953,683.882625041953,Low,diurnal,High,Medium,Lv3
+Calidris melanotos,Aves,Charadriiformes,Pectoral Sandpiper,NA,NA,NA,1,0,NA,1,0,Low,1,80,79.7,NA,1948.11285511484,1948.11285511484,Moderate,diurnal,Low,Low,Lv4
+Calidris minuta,Aves,Charadriiformes,Little Stint,NA,NA,NA,2,0,NA,1,0,Low,NA,50,21.1,NA,1081.93058167814,1081.93058167814,Moderate,diurnal,Low,Low,Lv4
+Macronectes giganteus,Aves,Procellariiformes,Southern Giant-petrel,TRUE,NA,NA,1,0,NA,1,0,Low,1,60,3591.7,NA,44835.4421909261,44835.4421909261,Low,diurnal,Low,NA,Lv3
+Macronectes halli,Aves,Procellariiformes,Northern Giant-petrel,TRUE,NA,NA,1,0,NA,1,0,Low,1,40,4206.3,NA,46322.7421282259,46322.7421282259,Low,diurnal,Low,NA,Lv3
+Pachyptila desolata,Aves,Procellariiformes,Antarctic Prion,NA,NA,NA,1,0,NA,1,1,Low,1,0,147,NA,4030.10872337166,4030.10872337166,High,diurnal,Low,NA,Lv4
+Pelagodroma marina,Aves,Procellariiformes,White-faced Storm-petrel,NA,NA,NA,1,0,NA,1,1,Low,1,0,47.2,NA,2456.15989716756,2456.15989716756,Low,diurnal,Low,NA,Lv4
+Puffinus huttoni,Aves,Procellariiformes,Hutton's Shearwater,NA,NA,NA,1,0,NA,1,1,Low,1,0,364,NA,5189.51311636742,5189.51311636742,Low,diurnal,Low,NA,Lv4
+Sterna striata,Aves,Charadriiformes,White-fronted Tern,NA,NA,NA,NA,0,NA,2,0,Low,1,0,129,NA,5369.04005975729,5369.04005975729,Low,diurnal,Low,NA,Lv4
+Thalassarche cauta,Aves,Procellariiformes,Shy Albatross,TRUE,NA,NA,1,0,NA,1,0,Low,1,0,3897.7,NA,39785.1317364169,39785.1317364169,High,diurnal,Low,NA,Lv4
+Leipoa ocellata,Aves,Galliformes,Malleefowl,TRUE,NA,NA,NA,0,NA,NA,0,Low,1,70,NA,no,NA,NA,Low,diurnal,Low,High,NA
+Cinclosoma castanotum,Aves,Passeriformes,Chestnut Quail-thrush,NA,NA,NA,NA,0,NA,NA,0,Low,1,100,73.3,no,1899.96347297626,1899.96347297626,Low,diurnal,Low,Low,Lv4
+Hylacola cauta,Aves,Passeriformes,Shy Heathwren,NA,NA,NA,NA,0,NA,NA,0,Low,0,50,15.2,no,446.654843866753,446.654843866753,Low,diurnal,Low,Low,Lv4
+Hylacola pyrrhopygia,Aves,Passeriformes,Chestnut-rumped Heathwren,NA,NA,NA,NA,0,NA,NA,0,Low,0,50,16.8,no,469.336258687996,469.336258687996,Low,diurnal,Low,Low,Lv4
+Ardea intermedia,Aves,Ciconiiformes,Intermediate Egret,NA,NA,NA,NA,0,NA,1,NA,Moderate,0,20,458.8,NA,18450.8336135119,18450.8336135119,Moderate,diurnal,Moderate,NA,Lv4
+Ardenna carneipes,Aves,Procellariiformes,Flesh-footed Shearwater,NA,NA,NA,1,0,NA,1,1,Low,1,0,609,NA,10095.9801985933,10095.9801985933,Low,diurnal,Low,NA,Lv4
+Ardenna grisea,Aves,Procellariiformes,Sooty Shearwater,TRUE,NA,NA,1,1,NA,1,1,Low,1,0,787,NA,9238.71121003093,9238.71121003093,Low,diurnal,Low,NA,Lv4
+Calidris pugnax,Aves,Charadriiformes,Ruff,NA,NA,NA,NA,0,NA,1,0,Low,1,60,131.7,NA,3600.26589848193,3600.26589848193,Moderate,diurnal,Low,Low,Lv4
+Ixobrychus dubius,Aves,Ciconiiformes,Minute Bittern,NA,NA,NA,NA,0,NA,1,0,Low,0,50,83.9,mod,3232.09414523857,3232.09414523857,Moderate,diurnal,High,NA,Lv4
+Petroica boodang,Aves,Passeriformes,Scarlet Robin,NA,NA,NA,5,0,NA,NA,0,NA,0,0,12.5,no,819.564654237916,819.564654237916,Low,diurnal,High,NA,Lv4
+Spatula rhynchotis,Aves,Anseriformes,Australasian Shoveler,NA,NA,NA,NA,0,NA,NA,0,Low,1,0,639,mod,6184.4840460335,6184.4840460335,High,diurnal,Moderate,Low,Lv4
+Sternula nereis,Aves,Charadriiformes,Fairy Tern,TRUE,NA,NA,NA,0,NA,1,0,Low,1,0,72.3,high,2022.89725956546,2022.89725956546,Low,diurnal,Low,Low,Lv4
+Thalassarche melanophris,Aves,Procellariiformes,Black-browed Albatross,TRUE,NA,NA,1,0,NA,1,0,Low,1,0,3202.9,NA,33672.1945549053,33672.1945549053,High,diurnal,Low,NA,Lv4
+Tringa brevipes,Aves,Charadriiformes,Grey-tailed Tattler,NA,NA,NA,NA,0,NA,1,0,Moderate,1,50,127,mod,3399.8468037307,3399.8468037307,Moderate,diurnal,Low,NA,Lv4
+Zanda funerea,Aves,Psittaciformes,Yellow-tailed Black-cockatoo,NA,NA,NA,2,1,NA,NA,0,NA,NA,20,674.7,mod,19138.6681037251,19138.6681037251,Low,diurnal,NA,Medium,Lv2
+Zapornia pusilla,Aves,Gruiformes,Baillon's Crake,NA,NA,NA,NA,0,NA,1,0,Low,1,50,35.4,low,1006.70659626608,1006.70659626608,Moderate,diurnal,Low,Low,Lv4
+Amytornis modestus,Aves,Passeriformes,Thick-billed Grasswren,TRUE,NA,NA,NA,0,NA,NA,0,Low,0,NA,23,no,662.792180641952,662.792180641952,Low,NA,Low,NA,Lv3
+Thinornis cucullatus,Aves,Charadriiformes,Hooded Plover,TRUE,NA,NA,2,0,NA,NA,0,Low,1,NA,100,mod,2082.07779487116,2082.07779487116,Moderate,NA,High,NA,Lv4
+Sternula albifrons,Aves,Charadriiformes,Little Tern,NA,NA,NA,NA,0,NA,1,0,Moderate,1,NA,57,NA,1969.1870919822,1969.1870919822,Moderate,NA,Low,NA,Lv4
+Acanthophis antarcticus,Reptilia,Squamata,Common Death Adder,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Aprasia pseudopulchella,Reptilia,Squamata,Flinders Ranges Worm-lizard,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Brachyurophis australis,Reptilia,Squamata,Coral Snake,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Crinia flindersensis,Amphibia,Anura,Northern Flinders Ranges Froglet,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Dermochelys coriacea,Reptilia,Testudines,Leathery Turtle,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Diporiphora reginae,Reptilia,Squamata,Plain-backed Two-line Dragon,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Drysdalia mastersii,Reptilia,Squamata,Masters' Snake,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Echiopsis curta,Reptilia,Squamata,Bardick,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Lerista distinguenda,Reptilia,Squamata,South-western Orange-tailed Slider,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Mogurnda clivicola,Actinopterygii,Perciformes,Flinders Ranges Mogurnda,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Morelia spilota,Reptilia,Squamata,Carpet Python,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Narophis bimaculatus,Reptilia,Squamata,Black-naped Snake,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Nephrurus deleani,Reptilia,Squamata,Pernatty Knob-tail,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Oedura cincta,Reptilia,Squamata,Inland Marbled Velvet Gecko,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Pseudaphritis urvillii,Actinopterygii,Perciformes,Congolli,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Varanus rosenbergi,Reptilia,Squamata,Heath Monitor,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Varanus varius,Reptilia,Squamata,Lace Monitor,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Vermicella annulata,Reptilia,Squamata,Bandy-bandy,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Alathyria jacksoni,Bivalvia,Unionida,"River Mussel, Murray-darling River Mussel",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Aspidites ramsayi,Reptilia,Squamata,Woma,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Craterocephalus stercusmuscarum,Actinopterygii,Atheriniformes,Flyspecked Hardyhead,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Eulamprus quoyii,Reptilia,Squamata,Eastern Water-skink,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Galaxias rostratus,Actinopterygii,Salmoniformes,Flathead Galaxias,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Lucasium steindachneri,Reptilia,Squamata,Box-patterned Gecko,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Maccullochella peelii,Actinopterygii,Perciformes,Murray Cod,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Nyctophilus corbeni,Mammalia,Chiroptera,Corben's Long-eared Bat,TRUE,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,Low,NA,NA,NA,NA
+Pseudechis porphyriacus,Reptilia,Squamata,Red-bellied Black Snake,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Strophurus williamsi,Reptilia,Squamata,Eastern Spiny-tailed Gecko,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Tandanus tandanus,Actinopterygii,Siluriformes,Freshwater Catfish,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Amytornis whitei,Aves,Passeriformes,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,0,100,19.6,no,602.135722477964,602.135722477964,Low,diurnal,Low,Medium,Lv3
+Antigone rubicunda,Aves,Gruiformes,Brolga,NA,NA,NA,NA,0,NA,NA,0,Low,1,50,6222.8,mod,57557.2659708054,57557.2659708054,Moderate,diurnal,High,Medium,Lv2
+Lophochroa leadbeateri,Aves,Psittaciformes,Major Mitchell's Cockatoo,NA,NA,NA,NA,1,NA,NA,0,NA,0,10,396.8,mod,10674.9240359058,10674.9240359058,Low,diurnal,High,High,Lv2
+Parvipsitta porphyrocephala,Aves,Psittaciformes,Purple-crowned Lorikeet,NA,NA,NA,NA,1,NA,NA,0,NA,0,0,44.7,mod,1128.79110757881,1128.79110757881,Low,diurnal,High,High,Lv2
+Stercorarius antarcticus,Aves,Charadriiformes,Brown Skua,NA,NA,NA,NA,0,NA,1,0,Low,1,70,1650,NA,23981.3054701214,23981.3054701214,Low,diurnal,Low,NA,Lv4
+Synoicus ypsilophora,Aves,Galliformes,Brown Quail,NA,NA,NA,NA,0,NA,NA,NA,NA,1,NA,NA,NA,NA,NA,NA,NA,High,NA,NA
+Ascarosepion apama,Cephalopoda,Sepiida,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Emydura macquarii,Reptilia,Testudines,Macquarie River Turtle,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Morelia imbricata,Reptilia,Squamata,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Tympanocryptis tolleyi,Reptilia,Squamata,Gawler Earless Dragon,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
+Chelodina expansa,Reptilia,Testudines,Broad-shelled Turtle,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,No exposure,NA,0,Low,NA,NA,NA,NA
