@@ -11,7 +11,6 @@
 #'   `habitat_suitability`, `habitat_code`, `habitat_description`.
 #'
 #' @return A tibble with one row per `scientific_name`, containing
-#'   `habitat_count_mj` (number of unique major habitat categories) and
 #'   `habitat_major_list` (semicolon-separated, alphabetised major habitat names)
 #' @export
 #'
@@ -28,7 +27,6 @@ summarise_iucn_habitat <- function(iucn_data) {
     ) |>
     dplyr::distinct(scientific_name, habitat_major, habitat_major_name) |>
     dplyr::summarise(
-      habitat_count_mj    = dplyr::n(),
       habitat_major_list  = paste(sort(unique(habitat_major_name)), collapse = "; "),
       .by = scientific_name
     )

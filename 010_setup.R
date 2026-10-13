@@ -51,7 +51,9 @@ tar_plan(
     ) |>
       dplyr::mutate(.word_count = lengths(strsplit(taxa, "\\s+"))) |>
       dplyr::filter(.word_count > 2, epbc == TRUE) |> 
-      dplyr::distinct()
+      dplyr::distinct() |> 
+      classify_species(search_term_col = "species")
+    
   ),
 
   tar_target(

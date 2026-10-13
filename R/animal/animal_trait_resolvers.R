@@ -8,27 +8,67 @@ animal_trait_resolvers <- list(
   habitat_count = \(data) {
     data |>
       dplyr::mutate(
-        habitat_count = iucn_habitat_count_mj,
-        hb_lit = NA
+        hb_lit = iucn_habitat_major_list
       )
   },
   
-  # was manual-only ("_lit" passthrough) — no database column exists for
-  # this trait, so it's a pure NA placeholder awaiting manual coding
-  dispersal = \(data) {
+  ubag_tolerance_resolved = \(data) {
     data |>
       dplyr::mutate(
-        dispersal_lit = NA
+        breedfeed_sum = aub_FeedingHabitatAgriculturalLandscapes9 +
+          aub_FeedingHabitatUrbanLandscapes9 +
+          aub_BreedingHabitatAgriculturalLands9 +
+          aub_BreedingHabitatUrban9,
+        breedsum = aub_BreedingHabitatAgriculturalLands9 + aub_BreedingHabitatUrban9,
+        feedsum = aub_FeedingHabitatAgriculturalLandscapes9 + aub_FeedingHabitatUrbanLandscapes9,
+        ubag_tolerance_resolved = dplyr::case_when(
+          breedfeed_sum == 0 ~ "Low",
+          breedsum > 0 & feedsum > 0 ~ "High",
+          breedsum == 0 & feedsum > 0 ~ "Moderate",
+          breedsum > 0 & feedsum == 0 ~ "Moderate",
+        )
       )
   },
   
-  breed_freq_resolved = \(data) {
+  dispersal_resolved = \(data) {
     data |>
       dplyr::mutate(
-        breed_freq_resolved = dplyr::coalesce(
+        dispersal_resolved = dplyr::case_when(
+          # migratory birds: regular long-distance movement
+          !is.na(bb_Mig) ~ "High",
+          
+          # otherwise follow urban/agricultural tolerance
+          ubag_tolerance_resolved == "High" ~ "High",
+          ubag_tolerance_resolved == "Moderate" ~ "Moderate",
+          
+          # Low only imputed for birds
+          ubag_tolerance_resolved == "Low" & ala_class == "Aves" ~ "Low",
+          
+          TRUE ~ NA_character_
+        )
+      )
+  },
+  
+  breed_cond_resolved = \(data) {
+    data |>
+      dplyr::mutate(
+        # numeric frequency from the first source that has a value
+        breed_freq_n = dplyr::coalesce(
           bb_Brd2,
           pan_LittersPerYear,
-          rep_NumberOfLittersOrClutchesProducedPerYear |> as.numeric(),
+          rep_NumberOfLittersOrClutchesProducedPerYear |> as.numeric()
+        ),
+        breed_cond_resolved = dplyr::case_when(
+          # at most one litter/clutch per year
+          breed_freq_n <= 1 ~ "once a year",
+          
+          # more than once per year, and none of these sources mention
+          # condition dependency, which is exactly the "continuous" definition.
+          # "highly dependent on conditions" cannot be assigned from counts
+          # alone, so it has to come from manual coding.
+          breed_freq_n > 1 ~ "continuous",
+          
+          TRUE ~ NA_character_
         )
       )
   },
@@ -43,18 +83,34 @@ animal_trait_resolvers <- list(
       )
   },
   
-  # manual-only — no database fallback for this trait
   oldgrowth_lit = \(data) {
     data |>
       dplyr::mutate(
-        oldgrowth_lit = NA
+        oldgrowth_lit = dplyr::case_when(
+          # urban/agricultural tolerant (not "Low") -> 0
+          ubag_tolerance_resolved %in% c("Moderate", "High") ~ 0,
+          
+          # artificial or marine habitat -> 0
+          stringr::str_detect(iucn_habitat_major_list, "Artificial|Marine") ~ 0,
+          
+          # habitat list exists but has no "Forest" -> 0
+          !is.na(iucn_habitat_major_list) &
+            !stringr::str_detect(iucn_habitat_major_list, "Forest") ~ 0,
+          
+          # everything else stays NA for imputation
+          TRUE ~ NA_real_
+        )
       )
   },
   
   connectivity_resolved = \(data) {
     data |>
       dplyr::mutate(
-        connectivity_resolved = bb_Mig
+        connectivity_resolved = case_when(
+          !is.na(bb_Mig) ~ bb_Mig,
+          is.na(bb_Mig) & ala_class == "Aves" ~ 0,
+          TRUE ~ NA_real_
+        )
       )
   },
   
@@ -77,15 +133,33 @@ animal_trait_resolvers <- list(
   },
   
   nest_sbs_resolved = \(data) {
+    lvls <- c("Low", "Moderate", "High")
+    
     data |>
       dplyr::mutate(
-        has_st = stringr::str_detect(bb_NestSbs, "T|S"),
+        has_st  = stringr::str_detect(bb_NestSbs, "T|S"),
         only_st = stringr::str_detect(bb_NestSbs, "^[TS,]+$"),
-        nest_sbs_resolved = dplyr::case_when(
+        nest_rule = dplyr::case_when(
           eltm_ForStrat.Value == "Ar" | only_st ~ "High",
           has_st & !only_st ~ "Moderate",
           !has_st ~ "Low"
-        )
+        ),
+        
+        has_forest = stringr::str_detect(iucn_habitat_major_list, 
+                                         "Forest") %in% TRUE,
+        has_open   = stringr::str_detect(iucn_habitat_major_list, 
+                                         "Shrubland|Savanna") %in% TRUE,
+        habitat_rule = dplyr::case_when(
+          has_forest ~ "High",
+          has_open   ~ "Moderate",
+          .default   = "Low"
+        ),
+        
+        nest_sbs_resolved = lvls[pmax(
+          match(nest_rule, lvls),
+          match(habitat_rule, lvls),
+          na.rm = TRUE
+        )]
       )
   },
   
@@ -131,7 +205,8 @@ animal_trait_resolvers <- list(
           eltm_BodyMass.Value,
           as.numeric(rep_MaximumBodyMassG),
           amp_Body_mass_g,
-        )
+        ) |> 
+          round(2)
       )
   },
   
@@ -148,16 +223,34 @@ animal_trait_resolvers <- list(
   wingload_resolved = \(data) {
     data |>
       dplyr::mutate(
-        wingspan = dplyr::coalesce(ws_wingspan_reported_mid_all, ws_wingspan_predicted_global),
+        wingspan = dplyr::coalesce(ws_wingspan_reported_mid_all,
+                                   ws_wingspan_predicted_global), # cm
+        winglength = ws_wing_length_cm_AVONET, # cm
+        s1 = ws_Secondary1_AVONET / 10, # cm
+        
         # ellipse-triangle model
-        bird_wingload_resolved =
-          1 / 3 * ws_wing_length_cm_AVONET * ws_Secondary1_AVONET * (pi + 1) + # inner segment
-          (wingspan - 2 * ws_wing_length_cm_AVONET) * ws_Secondary1_AVONET, # outer segment
+        bird_wingarea =
+          1 / 3 * winglength * s1 * (pi + 1) + # inner segment
+          (wingspan - 2 * winglength) * s1, # outer segment
+        
         wingload_resolved = dplyr::case_when(
-          !is_flying ~ 0,
-          is_flying ~ bird_wingload_resolved,
+          # non-flying: 0. `%in%` is used so an NA is_flying is never read as FALSE
+          is_flying %in% FALSE ~ 0,
+          
+          # flying: only compute when both inputs exist
+          is_flying %in% TRUE & !is.na(bird_wingarea) & !is.na(bodymass_resolved) ~
+            round((bodymass_resolved / 1000 * 9.81) / (bird_wingarea / 10000), 2),
+          
+          # flying but missing inputs, or is_flying unknown: stays NA for imputation
+          TRUE ~ NA_real_
         )
       )
+  },
+  
+  aspect_ratio_resolved <- \(data) {
+    data |> dplyr::mutate(
+      aspect_ratio_resolved = round(wingspan^2/bird_wingarea, 2)
+    )
   },
   
   lake_effect_resolved = \(data) {
@@ -186,20 +279,18 @@ animal_trait_resolvers <- list(
       )
   },
   
-  ubag_tolerance_resolved = \(data) {
+  # NOTE: the "Lv5"/"apex" tier had NO database column backing it —
+  # trophic_lit == "apex" was its only condition.
+  trophic_resolved = \(data) {
     data |>
       dplyr::mutate(
-        breedfeed_sum = aub_FeedingHabitatAgriculturalLandscapes9 +
-          aub_FeedingHabitatUrbanLandscapes9 +
-          aub_BreedingHabitatAgriculturalLands9 +
-          aub_BreedingHabitatUrban9,
-        breedsum = aub_BreedingHabitatAgriculturalLands9 + aub_BreedingHabitatUrban9,
-        feedsum = aub_FeedingHabitatAgriculturalLandscapes9 + aub_FeedingHabitatUrbanLandscapes9,
-        ubag_tolerance_resolved = dplyr::case_when(
-          breedfeed_sum == 0 ~ "Low",
-          breedsum > 0 & feedsum > 0 ~ "High",
-          breedsum == 0 & feedsum > 0 ~ "Moderate",
-          breedsum > 0 & feedsum == 0 ~ "Moderate",
+        trophic_resolved = dplyr::case_when(
+          pan_TrophicLevel == 3 | ws_Trophic.Level_AVONET == "Carnivore" | 
+            rep_Diet == "Carnivorous" ~ "Lv4",
+          pan_TrophicLevel == 2 | ws_Trophic.Level_AVONET == "Omnivore" | 
+            rep_Diet == "Omnivorous" ~ "Lv3",
+          pan_TrophicLevel == 1 | ws_Trophic.Level_AVONET == "Herbivore" | 
+            rep_Diet == "Herbivorous" ~ "Lv2",
         )
       )
   },
@@ -218,7 +309,7 @@ animal_trait_resolvers <- list(
           plant_diet_prop > 0 & plant_diet_prop < 50 ~ "Low",
           rep_Diet == "Herbivorous" ~ "High",
           rep_Diet == "Omnivorous" ~ "Medium",
-          rep_Diet == "Carnivorous" ~ "Low",
+          rep_Diet == "Carnivorous" | trophic_resolved == "Lv4" ~ "Low",
         )
       )
   },
@@ -246,24 +337,7 @@ animal_trait_resolvers <- list(
           TRUE ~ FALSE,
         )
       )
-  },
-  
-  # NOTE: the "Lv5"/"apex" tier had NO database column backing it —
-  # trophic_lit == "apex" was its only condition.
-  trophic_resolved = \(data) {
-    data |>
-      dplyr::mutate(
-        trophic_resolved = dplyr::case_when(
-          pan_TrophicLevel == 3 | ws_Trophic.Level_AVONET == "Carnivore" | 
-            rep_Diet == "Carnivorous" ~ "Lv4",
-          pan_TrophicLevel == 2 | ws_Trophic.Level_AVONET == "Omnivore" | 
-            rep_Diet == "Omnivorous" ~ "Lv3",
-          pan_TrophicLevel == 1 | ws_Trophic.Level_AVONET == "Herbivore" | 
-            rep_Diet == "Herbivorous" ~ "Lv2",
-        )
-      )
   }
-  
 )
 
 ## ---- driver ------------------------------------------------------------------

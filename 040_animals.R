@@ -18,6 +18,7 @@ tar_source("../Status/R/setup")
 
 concern <- tar_read(concern, store = tars$setup$store)
 animaldb <- tar_read(animaldb, store = tars$animaldb$store)
+concern_subsp_epbc <- tar_read(concern_subsp_epbc, store = tars$setup$store)
 
 tar_plan(
   
@@ -26,7 +27,17 @@ tar_plan(
   tar_target(
     animal_traits_resolved,
     resolve_animal_traits(animaldb) |> 
+      dplyr::mutate(taxa = species) |> 
+      dplyr::bind_rows(concern_subsp_epbc) |> 
       dplyr::mutate(dplyr::across(everything(), as.character))
+  ),
+  
+  ## "concern_subsp_epbc" whose species is not in "concern"
+  
+  tar_target(
+    add_species,
+    concern_subsp_epbc |> 
+      dplyr::filter(!species %in% animaldb$species)
   ),
   
   # Construct mtable for imputation:
@@ -36,7 +47,7 @@ tar_plan(
   tar_target(
     animal_mtable_path,
     create_or_update_mtable_animal(
-      animal_traits_resolved,
+      dplyr::bind_rows(animaldb, add_species),
       path = fs::path("data", "animal_mtable.csv")
     ),
     format = "file"
