@@ -1,53 +1,72 @@
-#' Coalesces manually-coded values onto database-derived resolved traits.
-#' Both animal_traits_resolved and animal_mtable are character at this
-#' point (stringify_all_cols() applied upstream), so the coalesce() itself
-#' needs no type handling. Real types are restored ONCE, at the very end,
-#' via readr::type_convert() — after the override is applied, not before.
-apply_manual_overrides_animal <- 
-  function(animal_traits_resolved, 
-           animal_mtable, 
-           id_col = "species",
-           context_cols = c("taxa",
-                            "ala_class", 
-                            "ala_order", 
-                            "ala_vernacular_name", 
-                            "epbc"))
-  {
-    
-    # Step 1: Identify which resolved/lit trait columns actually exist in
-    # BOTH tables — animal_mtable only contains columns that had at least
-    # one NA when it was built, so this is the working override set.
-    trait_cols <- intersect(
-      names(animal_mtable),
-      animal_traits_resolved |> 
-        dplyr::select(dplyr::matches("_resolved$|_lit$")) |> 
-        names()
+#' Apply manual (mtable) coding onto database-resolved animal traits
+#'
+#' Produces the final animal trait table by combining three sources, in this
+#' order of priority: manually coded values from the mtable, then values
+#' inherited from the parent species, then the database-resolved values.
+#'
+#' @section Row identity:
+#' `species` is binomial and is the key used to match the mtable.
+#' `taxa` is the unique row key: `taxa == species` marks a species-level row
+#' (the "parent"), and `taxa != species` (a trinomial) marks a subspecies row
+#' that came in with `concern_subsp_epbc`. `species` therefore repeats by
+#' design, so check duplicates on `taxa`.
+#'
+#' @section What happens:
+#' 1. **Inherit.** Subspecies rows fill their NA cells from the parent
+#'    species-level row (`inherit_cols`). Parent rows are never changed.
+#' 2. **Override.** For every manually coded column in the mtable
+#'    (`mtable_cols`), the mtable value wins wherever it is non-NA. Matching
+#'    is by `species`, so a species coded once in the mtable is applied to all
+#'    its subspecies rows. This is also how species not in `animaldb` (no
+#'    parent row) get their values.
+#' 3. **Restore types.** `readr::type_convert()` is applied once at the end,
+#'    since both inputs are all-character.
+#'
+#' @section Why `context_cols` and `no_inherit` are separate:
+#' `context_cols` (e.g. `epbc`) are excluded from BOTH inheriting and the mtable
+#' override. They describe the specific taxon, so a subspecies must keep its own
+#' value; the mtable holds one value per species and would overwrite it.
+#' `no_inherit` columns (e.g. `taxa`, `kingdom`) are excluded from inheriting
+#' only. Add any other subspecies-specific columns that arrive with
+#' `concern_subsp_epbc` here (listing status, dates, etc.).
+#'
+#' @section Notes:
+#' - Mtable columns missing from `animal_traits_resolved` (e.g.
+#'   `extinct_mainland`)
+apply_manual_overrides_animal <- function(
+    animal_traits_resolved,
+    animal_mtable,
+    id_col = "species",
+    context_cols = c("ala_class", "ala_order", "ala_vernacular_name", "epbc"),
+    no_inherit = c("taxa", "kingdom")
+) {
+  # columns a subspecies may inherit from its parent species row
+  inherit_cols <- setdiff(names(animal_traits_resolved),
+                          c(id_col, context_cols, no_inherit))
+  # columns coded in the mtable (manual values win)
+  mtable_cols <- setdiff(names(animal_mtable), c(id_col, context_cols))
+  
+  # 1. subspecies (taxa != species) inherit from the parent row (taxa == species)
+  parents <- animal_traits_resolved |>
+    dplyr::filter(taxa == .data[[id_col]]) |>
+    dplyr::distinct(.data[[id_col]], .keep_all = TRUE)
+  p_idx <- match(animal_traits_resolved[[id_col]], parents[[id_col]])
+  
+  out <- animal_traits_resolved |>
+    dplyr::mutate(
+      dplyr::across(
+        dplyr::all_of(inherit_cols),
+        \(x) dplyr::coalesce(x, parents[[dplyr::cur_column()]][p_idx])
+      )
     )
-    
-    # Step 2: Align animal_mtable to animal_traits_resolved's row order via
-    # a left_join on species, rather than assuming row order (bind_cols()
-    # would silently break if the two tables were ever in different order).
-    mtable_j <- animal_traits_resolved |>
-      dplyr::select(dplyr::all_of(c(id_col, context_cols))) |>
-      dplyr::left_join(animal_mtable, 
-                       by = id_col
-      )
-    
-    # Step 3: For each trait column, the manual value wins wherever it's
-    # non-NA; otherwise the database-resolved value is kept. Character-vs-
-    # character throughout, so this coalesce() can't hit a type mismatch.
-    overridden <- trait_cols |>
-      purrr::reduce(
-        \(data, col) dplyr::mutate(data, "{col}" := dplyr::coalesce(mtable_j[[col]],
-                                                                    .data[[col]])),
-        .init = animal_traits_resolved
-      )
-    
-    # Step 4: Restore real types (double/logical/character) across the whole
-    # table in one pass, now that the override merge is complete — this is
-    # the only point at which type inference happens in this function.
-    overridden |>
-      readr::type_convert()
-    
-    # Step 5: Keep only the 
+  
+  # 2. manual values win, matched by species so subspecies get the species' coding
+  m_idx <- match(out[[id_col]], animal_mtable[[id_col]])
+  for (col in mtable_cols) {
+    base <- if (col %in% names(out)) out[[col]] else NA_character_
+    out[[col]] <- dplyr::coalesce(animal_mtable[[col]][m_idx], base)
   }
+  
+  # 3. restore types once
+  readr::type_convert(out)
+}

@@ -24,51 +24,46 @@ tar_plan(
   
   ## PROCESSED ------
   
+  # Full table: resolved database species + ALL concern_subsp_epbc rows
   tar_target(
     animal_traits_resolved,
-    resolve_animal_traits(animaldb) |> 
-      dplyr::mutate(taxa = species) |> 
-      dplyr::bind_rows(concern_subsp_epbc) |> 
-      dplyr::mutate(dplyr::across(everything(), as.character))
+    animaldb |>
+      resolve_animal_traits() |>
+      dplyr::mutate(taxa = species) |>
+      dplyr::bind_rows(concern_subsp_epbc) |>
+      dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
   ),
   
-  ## "concern_subsp_epbc" whose species is not in "concern"
-  
-  tar_target(
-    add_species,
-    concern_subsp_epbc |> 
-      dplyr::filter(!species %in% animaldb$species)
-  ),
-  
-  # Construct mtable for imputation:
-  # New species and cols append;
-  # Each species must be unique; 
-  # The imputed value always win and will not be replaced by updated database value;
+  # Mtable: one row per species. Database species first, so subspecies of
+  # species already in animaldb are dropped here (not imputed). New species
+  # not in animaldb stay and are coded manually.
   tar_target(
     animal_mtable_path,
-    create_or_update_mtable_animal(
-      dplyr::bind_rows(animaldb, add_species),
-      path = fs::path("data", "animal_mtable.csv")
-    ),
+    animal_traits_resolved |>
+      dplyr::filter(is.na(kingdom) | kingdom == "Animalia") |>
+      dplyr::distinct(species, .keep_all = TRUE) |>
+      create_or_update_mtable_animal(path = fs::path("data", "animal_mtable.csv")),
     format = "file"
   ),
   
   ## IMPUTED ------
   tar_target(
     animal_mtable,
-    readr::read_csv(
-      animal_mtable_path,
-      col_types = readr::cols(.default = "c")
-    )
+    readr::read_csv(animal_mtable_path, col_types = readr::cols(.default = "c"))
   ),
   
   tar_target(
     animal_traits_final,
-    apply_manual_overrides_animal(animal_traits_resolved, 
-                                  animal_mtable, 
-                                  id_col = "species")
-  ),
-
+    apply_manual_overrides_animal(
+      animal_traits_resolved, animal_mtable, id_col = "species"
+    )
+  ), 
+  
   ## SCORED ------
   
+  tarchetypes::tar_file_read(
+    iMeta_animal,
+    "/mnt/envshare/data/traits/meta/ExposureTraits.xlsx", 
+    readxl::read_excel(!!.x, sheet = "iMeta_animal")
+  )
 )

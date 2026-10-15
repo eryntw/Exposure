@@ -5,7 +5,7 @@
 #' need manual coding — see flag_missing_traits().
 animal_trait_resolvers <- list(
   
-  habitat_count = \(data) {
+  hb_lit = \(data) {
     data |>
       dplyr::mutate(
         hb_lit = iucn_habitat_major_list
@@ -215,8 +215,22 @@ animal_trait_resolvers <- list(
       dplyr::mutate(
         flight_height_resolved = dplyr::case_when(
           !is_flying ~ "No exposure",
-          is_flying ~ avis_Exp,
-        )
+          # bat
+          ala_order %in% "Chiroptera" ~ bat_proxy(species, "flight_height"),
+          # bird
+          is_flying ~ avis_Exp
+        ),
+        # standardise vocabulary: trim/lowercase, then map to the canonical labels
+        .fh_clean = stringr::str_to_lower(stringr::str_squish(flight_height_resolved)),
+        flight_height_resolved = dplyr::case_match(
+          .fh_clean,
+          c("no", "no exposure") ~ "No exposure",
+          "low"                  ~ "Low",
+          c("mod", "moderate")   ~ "Moderate",
+          "high"                 ~ "High",
+          .default = flight_height_resolved   # unrecognised values pass through unchanged
+        ),
+        .fh_clean = NULL
       )
   },
   
@@ -233,23 +247,39 @@ animal_trait_resolvers <- list(
           1 / 3 * winglength * s1 * (pi + 1) + # inner segment
           (wingspan - 2 * winglength) * s1, # outer segment
         
-        wingload_resolved = dplyr::case_when(
+        wingload = dplyr::case_when(
           # non-flying: 0. `%in%` is used so an NA is_flying is never read as FALSE
           is_flying %in% FALSE ~ 0,
-          
           # flying: only compute when both inputs exist
           is_flying %in% TRUE & !is.na(bird_wingarea) & !is.na(bodymass_resolved) ~
             round((bodymass_resolved / 1000 * 9.81) / (bird_wingarea / 10000), 2),
-          
           # flying but missing inputs, or is_flying unknown: stays NA for imputation
           TRUE ~ NA_real_
+        ),
+        wingload_resolved = dplyr:: case_when(
+          !is_flying ~ "No exposure",
+          # bat
+          ala_order %in% "Chiroptera" ~ bat_proxy(species, "wing_loading"),
+          # bird
+          is_flying %in% FALSE | wingload <= 25 | wingload > 90 ~ "Low",
+          wingload > 25 & wingload <= 50 ~ "Moderate",
+          wingload > 50 & wingload <= 90 ~ "High"
         )
       )
   },
   
   aspect_ratio_resolved <- \(data) {
     data |> dplyr::mutate(
-      aspect_ratio_resolved = round(wingspan^2/bird_wingarea, 2)
+      aspect_ratio  = round(wingspan^2/bird_wingarea, 2),
+      aspect_ratio_resolved = dplyr::case_when(
+        !is_flying ~ "No exposure",
+        # bat
+        ala_order %in% "Chiroptera" ~ bat_proxy(species, "aspect_ratio"),
+        # bird
+        is_flying %in% FALSE | aspect_ratio <= 6 ~ "Low",
+        aspect_ratio > 6 & aspect_ratio <= 8 ~ "Moderate",
+        aspect_ratio > 8 ~ "High"
+      )
     )
   },
   
@@ -305,10 +335,10 @@ animal_trait_resolvers <- list(
         ),
         plant_diet_resolved = dplyr::case_when(
           plant_diet_prop >= 80 ~ "High",
-          plant_diet_prop >= 50 & plant_diet_prop < 80 ~ "Medium",
+          plant_diet_prop >= 50 & plant_diet_prop < 80 ~ "Moderate",
           plant_diet_prop > 0 & plant_diet_prop < 50 ~ "Low",
           rep_Diet == "Herbivorous" ~ "High",
-          rep_Diet == "Omnivorous" ~ "Medium",
+          rep_Diet == "Omnivorous" ~ "Moderate",
           rep_Diet == "Carnivorous" | trophic_resolved == "Lv4" ~ "Low",
         )
       )
@@ -324,17 +354,13 @@ animal_trait_resolvers <- list(
         
         freshwatersp_resolved = dplyr::case_when(
           # amphibians
-          ala_class == "Amphibia" ~ TRUE,
+          ala_class == "Amphibia" ~ "High",
+          ala_class == "Actinopterygii" & has_freshwater_habitat ~ "High",
+
+          has_freshwater_habitat ~ "Moderate",
           
-          # fish and reptiles: only freshwater-associated members
-          ala_class %in% c("Actinopterygii", "Reptilia") & has_freshwater_habitat ~ TRUE,
-          ala_class %in% c("Actinopterygii", "Reptilia") & !has_freshwater_habitat ~ FALSE,
-          
-          # aquatic mammals
-          is_mammal & stringr::str_detect(iucn_habitat_major_list, "Aquatic") ~ TRUE,
-          
-          # everything else
-          TRUE ~ FALSE,
+          # Everything else: check
+          TRUE ~ NA_character_,
         )
       )
   }
