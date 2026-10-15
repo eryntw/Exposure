@@ -19,6 +19,7 @@ tar_source("../Status/R/setup")
 concern <- tar_read(concern, store = tars$setup$store)
 animaldb <- tar_read(animaldb, store = tars$animaldb$store)
 concern_subsp_epbc <- tar_read(concern_subsp_epbc, store = tars$setup$store)
+rec_summary_pilot <- tar_read(rec_summary_pilot, store = tars$setup$store)
 
 tar_plan(
   
@@ -54,16 +55,41 @@ tar_plan(
   
   tar_target(
     animal_traits_final,
-    apply_manual_overrides_animal(
-      animal_traits_resolved, animal_mtable, id_col = "species"
-    )
-  ), 
+      apply_manual_overrides_animal(
+        animal_traits_resolved,
+        animal_mtable,
+        id_col = "species"
+      )
+  ),
   
   ## SCORED ------
+  tarchetypes::tar_file_read(
+    Rule_animal,
+    "/mnt/envshare/data/traits/meta/ExposureTraits.xlsx", 
+    readxl::read_excel(!!.x, sheet = "Rule_animal")
+  ),
   
   tarchetypes::tar_file_read(
     iMeta_animal,
     "/mnt/envshare/data/traits/meta/ExposureTraits.xlsx", 
     readxl::read_excel(!!.x, sheet = "iMeta_animal")
+  ), 
+  
+  tar_target(
+    animal_traits_scored,
+    {
+      proc_vars <- Rule_animal$processed_var |>
+        stringr::str_squish() |>
+        unique()
+      
+      missing_vars <- setdiff(proc_vars, names(animal_traits_final))
+      if (length(missing_vars) > 0) {
+        stop("Rule_animal processed_var missing from animal_traits_final: ",
+             paste(missing_vars, collapse = ", "))
+      }
+      
+      animal_traits_final |> 
+        dplyr::select(dplyr::any_of(c("taxa", proc_vars)))
+    }
   )
 )

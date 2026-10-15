@@ -128,7 +128,10 @@ animal_trait_resolvers <- list(
   arid_specialist = \(data) {
     data |>
       dplyr::mutate(
-        arid_specialist = clim_desert_prop
+        arid_specialist = dplyr::case_when(
+          clim_desert_prop > 0.7 ~ 1,
+          TRUE ~ 0
+        )
       )
   },
   
@@ -262,8 +265,8 @@ animal_trait_resolvers <- list(
           ala_order %in% "Chiroptera" ~ bat_proxy(species, "wing_loading"),
           # bird
           is_flying %in% FALSE | wingload <= 25 | wingload > 90 ~ "Low",
-          wingload > 25 & wingload <= 50 ~ "Moderate",
-          wingload > 50 & wingload <= 90 ~ "High"
+          wingload > 25 & wingload <= 40 ~ "Moderate",
+          wingload > 40 & wingload <= 90 ~ "High"
         )
       )
   },
