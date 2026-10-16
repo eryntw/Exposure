@@ -31,7 +31,8 @@ tar_plan(
     animaldb |>
       resolve_animal_traits() |>
       dplyr::mutate(taxa = species) |>
-      dplyr::bind_rows(concern_subsp_epbc) |>
+      dplyr::bind_rows(concern_subsp_epbc |> 
+                         dplyr::filter(kingdom == "Animalia")) |>
       dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
   ),
   
@@ -55,11 +56,11 @@ tar_plan(
   
   tar_target(
     animal_traits_final,
-      apply_manual_overrides_animal(
-        animal_traits_resolved,
-        animal_mtable,
-        id_col = "species"
-      )
+    apply_manual_overrides_animal(
+      animal_traits_resolved,
+      animal_mtable,
+      id_col = "species"
+    )
   ),
   
   ## SCORED ------
@@ -89,7 +90,17 @@ tar_plan(
       }
       
       animal_traits_final |> 
-        dplyr::select(dplyr::any_of(c("taxa", proc_vars)))
+        dplyr::select(dplyr::any_of(c("taxa", "species", 
+                                      "ala_class", "ala_vernacular_name",
+                                      proc_vars))) |> 
+        recode_scores_animal(
+          low      = c("irruptive", "once a year", "diurnal", "Lv2"),
+          moderate = c("dependent", "crepuscular", "cathemeral", "Lv3"),
+          high     = c("continuous", "nocturnal","Lv4"),
+          very_high = "Lv5",
+          zero     = "No exposure",
+          rules = Rule_animal
+        )
     }
-  )
+  ) ## ==> Join Status to form iCode_animal
 )

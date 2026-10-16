@@ -69,6 +69,13 @@ tar_plan(
   ),
   
   ## IMPUTED ------
+  tarchetypes::tar_file_read(
+    name = plant_trait_imputed, 
+    command = "/mnt/envshare/dev/out/Trait_impute/_targets/impute_traits/objects/exp_impute",
+    read = readRDS(!!.x) |> 
+      dplyr::select(taxon_name, contains("imputed_value_use")) |> 
+      join_plant_imputed(raw = plant_trait_raw)
+  )
 
   ## PROCESSED ------
   

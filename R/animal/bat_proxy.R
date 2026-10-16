@@ -4,28 +4,28 @@
 #' and returns Low/Moderate/High for each species by genus.
 #'
 #' Each trait uses a different score column as its proxy:
-#'   flight_height -> Foraging Guild   (1 narrow, 2 edge, 3 open space)
-#'   aspect_ratio  -> Movement Distance (1 <=10 km, 2 10-100 km, 3 >100 km)
-#'   wing_loading  -> Wing Morphology  (mean of aspect ratio and wing loading scores)
+#'   aspect_ratio  -> Foraging Guild    (T1: 1 narrow, 2 edge, 3 open space)
+#'   flight_height -> Movement Distance (T2: 1 <=10 km, 2 10-100 km, 3 >100 km)
+#'   wing_loading  -> Wing Morphology   (T3: mean of aspect ratio and wing loading scores)
 #'
 #' Scores are ordinal vulnerability scores, so categories are relative among
 #' bats, not comparable to the measured bird cut points.
 #'
 #' @param species Character vector of binomials (use the `species` column).
-#' @param trait One of "flight_height", "aspect_ratio", "wing_loading".
+#' @param trait One of "aspect_ratio", "flight_height", "wing_loading".
 #' @return Character vector the same length as `species`; NA where the genus
 #'   isn't in the table (including all non-bats).
 bat_proxy <- function(
     species,
     trait = c("aspect_ratio", "wing_loading", "flight_height"),
-    path  = "path/to/bat_vulnerability.xlsx",
+    path  = "/mnt/envshare/data/traits/raw/mammal/bat_vulnerability_table.xlsx",
     sheet = "Bat Vulnerability Table 1"
 ) {
   trait <- match.arg(trait)
   
   score_col <- c(
-    flight_height = "Foraging Guild",
-    aspect_ratio  = "Movement Distance",
+    aspect_ratio  = "Foraging Guild",
+    flight_height = "Movement Distance",
     wing_loading  = "Wing Morphology"
   )[[trait]]
   

@@ -174,7 +174,7 @@ Antigone rubicunda,Aves,Gruiformes,Brolga,NA,Grassland; Wetlands (inland),High,i
 Lophochroa leadbeateri,Aves,Psittaciformes,Major Mitchell's Cockatoo,NA,Forest; Shrubland,High,once a year,1,0,0,0,0,10,396.8,36.46,Low,diurnal,High,High,Lv2,0,High,Moderate,Moderate,Low,Moderate
 Parvipsitta porphyrocephala,Aves,Psittaciformes,Purple-crowned Lorikeet,NA,Artificial/Terrestrial; Forest; Savanna,High,dependent,1,0,0,0,0,0,44.7,38.85,Low,diurnal,High,High,Lv2,0,High,Moderate,Moderate,High,Moderate
 Stercorarius antarcticus,Aves,Charadriiformes,Brown Skua,NA,Grassland; Marine Coastal/Supratidal; Marine Intertidal; Marine Neritic; Marine Oceanic,High,once a year,0,0,1,0,1,70,1650,67.5,Low,diurnal,Low,Low,Lv5,0,Low,High,High,High,Moderate
-Synoicus ypsilophora,Aves,Galliformes,Brown Quail,NA,Artificial/Terrestrial; Grassland; Shrubland; Wetlands (inland),High,continuous,0,0,0,0,1,100,91,NA,Low,NA,High,Moderate,Lv3,0,Low,No exposure,High,Low,Moderate
+Synoicus ypsilophora,Aves,Galliformes,Brown Quail,NA,Artificial/Terrestrial; Grassland; Shrubland; Wetlands (inland),High,continuous,0,0,0,0,1,100,91,NA,Low,crepuscular,High,Moderate,Lv3,0,Low,No exposure,High,Low,Moderate
 Ascarosepion apama,Cephalopoda,Sepiida,NA,NA,Marine Neritic,Low,irruptive,1,0,1,0,0,0,7500,0,Low,cathemeral,Low,Low,Lv4,0,Low,No exposure,No exposure,No exposure,Low
 Emydura macquarii,Reptilia,Testudines,Macquarie River Turtle,NA,Wetlands (inland),Low,dependent,0,0,1,1,0,0,1740,0,Low,diurnal,Low,Moderate,Lv3,0,Low,No exposure,No exposure,No exposure,High
 Morelia imbricata,Reptilia,Squamata,NA,NA,Forest; Shrubland; Grassland; Rocky Areas; Artificial/Terrestrial,Low,irruptive,1,0,0,0,1,50,4000,0,Low,cathemeral,Low,Low,Lv4,0,Low,No exposure,No exposure,No exposure,Moderate
