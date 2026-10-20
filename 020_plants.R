@@ -17,6 +17,7 @@ tar_source("../Status/R/setup")
 # targets -------
 
 concern <- tar_read(concern, store = tars$setup$store)
+concern_subsp_epbc <- tar_read(concern_subsp_epbc, store = tars$setup$store)
 rec_summary_pilot <- tar_read(rec_summary_pilot, store = tars$setup$store)
 
 tar_plan(
@@ -70,13 +71,27 @@ tar_plan(
   
   ## IMPUTED ------
   tarchetypes::tar_file_read(
-    name = plant_trait_imputed, 
+    name = plant_trait_imputed,
     command = "/mnt/envshare/dev/out/Trait_impute/_targets/impute_traits/objects/exp_impute",
-    read = readRDS(!!.x) |> 
-      dplyr::select(taxon_name, contains("imputed_value_use")) |> 
-      join_plant_imputed(raw = plant_trait_raw)
+    read = readRDS(!!.x) |>
+      join_plant_imputed(
+        raw     = plant_trait_raw$matrix,
+        concern = dplyr::filter(concern, kingdom == "Plantae"),
+        subsp   = dplyr::filter(concern_subsp_epbc, kingdom == "Plantae")
+      )
+  ),
+  
+  ## MANUAL CHECK ------
+  tar_target(
+    plant_mtable_path,
+    {
+      path <- fs::path("data", "plant_mtable.csv")
+      readr::write_csv(plant_trait_imputed, path)
+      path
+    },
+    format = "file"
   )
-
+  
   ## PROCESSED ------
   
   ## SCORED ------

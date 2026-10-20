@@ -27,7 +27,7 @@ tar_plan(
   
   # Full table: resolved database species + ALL concern_subsp_epbc rows
   tar_target(
-    animal_traits_resolved,
+    animal_trait_resolved,
     animaldb |>
       resolve_animal_traits() |>
       dplyr::mutate(taxa = species) |>
@@ -41,7 +41,7 @@ tar_plan(
   # not in animaldb stay and are coded manually.
   tar_target(
     animal_mtable_path,
-    animal_traits_resolved |>
+    animal_trait_resolved |>
       dplyr::filter(is.na(kingdom) | kingdom == "Animalia") |>
       dplyr::distinct(species, .keep_all = TRUE) |>
       create_or_update_mtable_animal(path = fs::path("data", "animal_mtable.csv")),
@@ -55,9 +55,9 @@ tar_plan(
   ),
   
   tar_target(
-    animal_traits_final,
+    animal_trait_final,
     apply_manual_overrides_animal(
-      animal_traits_resolved,
+      animal_trait_resolved,
       animal_mtable,
       id_col = "species"
     )
@@ -77,19 +77,19 @@ tar_plan(
   ), 
   
   tar_target(
-    animal_traits_scored,
+    animal_trait_scored,
     {
       proc_vars <- Rule_animal$processed_var |>
         stringr::str_squish() |>
         unique()
       
-      missing_vars <- setdiff(proc_vars, names(animal_traits_final))
+      missing_vars <- setdiff(proc_vars, names(animal_trait_final))
       if (length(missing_vars) > 0) {
-        stop("Rule_animal processed_var missing from animal_traits_final: ",
+        stop("Rule_animal processed_var missing from animal_trait_final: ",
              paste(missing_vars, collapse = ", "))
       }
       
-      animal_traits_final |> 
+      animal_trait_final |> 
         dplyr::select(dplyr::any_of(c("taxa", "species", 
                                       "ala_class", "ala_vernacular_name",
                                       proc_vars))) |> 

@@ -13,6 +13,10 @@ Exposure:
     res_y: 90
     grain_time: P1Y
     taxonomic: species
+
+Status:
+  extent:
+    extent_vector:
     
 # Other project (scale the same as the above unless specified)
 RecExtract:
@@ -43,7 +47,3 @@ envPIA_b:
     taxonomic: 
       - species
       - subspecies
-
-Status:
-  extent:
-    extent_vector:
