@@ -4,13 +4,14 @@
 ##    version of each of these traits is kept as "<name>_raw"; the imputed
 ##    values take the full trait name.
 ## 3. Sort the trait columns so each raw/imputed pair sits side by side.
-## 4. Left join the species-level `concern` columns (they stay at the end).
-## 5. Optionally add subspecies rows (`subsp`) that copy their parent species' row.
+## 4. Left join onto `concern`, which has one row per species or subspecies:
+##      species = parent binomial (matches taxon_name in raw/imputed)
+##      taxa    = binomial or trinomial; becomes the final taxon_name
+##    Subspecies therefore inherit their parent species' trait values.
 
 join_plant_imputed <- function(raw = NULL,
                                imputed = NULL,
-                               concern = NULL,
-                               subsp = NULL) {
+                               concern = NULL) {
   
   ## acronym -> full trait name (matches raw$matrix) ##
   name_map <- c(
@@ -29,14 +30,14 @@ join_plant_imputed <- function(raw = NULL,
   ## keep only the id and the imputed columns (drops value_use.*, ori.* etc.) ##
   imputed <- dplyr::select(imputed, taxon_name, dplyr::contains("imputed_value_use"))
   
-  ## imputed values only for concern species ##
+  ## imputed values only for parent species in concern ##
   if (!is.null(concern)) {
     imputed <- dplyr::semi_join(imputed, concern, by = c("taxon_name" = "species"))
   }
   
-  ## "SDM_imputed_value_use" or "imputed_value_use_SDM" -> "seed_dry_mass" ##
+  ## "imputed_value_use.SDM" or "SDM_imputed_value_use" -> "seed_dry_mass" ##
   use_cols   <- grep("imputed_value_use", names(imputed), value = TRUE)
-  acronyms   <- stringr::str_remove_all(use_cols, "_?imputed_value_use._?")
+  acronyms   <- stringr::str_remove_all(use_cols, "_?imputed_value_use[._]?")
   full_names <- unname(name_map[acronyms])
   
   imputed <- imputed |>
@@ -51,27 +52,18 @@ join_plant_imputed <- function(raw = NULL,
   base   <- stringr::str_remove(names(raw), "_raw$")
   raw    <- raw[order(names(raw) != "taxon_name", base, !is_raw, method = "radix")]
   
-  ## concern columns first; concern drives the rows ##
+  ## concern drives the rows: species and subspecies both pick up the parent
+  ## species' trait values via `species`, then `taxa` becomes taxon_name ##
   if (!is.null(concern)) {
     raw <- concern |>
-      dplyr::left_join(raw, by = c("species" = "taxon_name")) |>
-      dplyr::rename(taxon_name = species) |>
-      dplyr::relocate(taxon_name)
-  }
-  ## subspecies: copy the parent species' row (`species`) under the subspecies name (`taxa`) ##
-  if (!is.null(subsp)) {
-    new_rows <- subsp |>
-      dplyr::filter(!taxa %in% raw$taxon_name) |>   # leave any already present untouched
-      dplyr::distinct(taxa, species) |>
-      dplyr::inner_join(raw, by = c(species = "taxon_name")) |>
-      dplyr::select(-species) |>
-      dplyr::rename(taxon_name = taxa)
-    
-    raw <- dplyr::bind_rows(raw, new_rows)
+      dplyr::left_join(raw, by = c("species" = "taxon_name"), relationship = "many-to-one") |>
+      dplyr::mutate(taxon_name = dplyr::coalesce(taxa, species)) |>
+      dplyr::select(-taxa) |>
+      dplyr::relocate(taxon_name, species)
   }
   
-  raw <-  raw |>  
-    mutate(across(where(is.numeric), round, digits = 2))
+  raw |>
+    dplyr::mutate(dplyr::across(dplyr::where(is.numeric), \(x) round(x, digits = 2)))
 }
 
 ## Target ##
@@ -81,7 +73,6 @@ join_plant_imputed <- function(raw = NULL,
 #   read = readRDS(!!.x) |>
 #     join_plant_imputed(
 #       raw     = plant_trait_raw$matrix,
-#       concern = concern,
-#       subsp   = dplyr::filter(concern_subsp_epbc, kingdom == "Plantae")
+#       concern = dplyr::filter(concern, kingdom == "Plantae")
 #     )
 # ),

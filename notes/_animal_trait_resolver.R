@@ -143,7 +143,7 @@ animal_trait_resolver <- list(
   taxonomic_class = \(data) {
     data |>
       dplyr::mutate(
-        taxonomic_class = ala_class
+        taxonomic_class = class
       )
   },
   

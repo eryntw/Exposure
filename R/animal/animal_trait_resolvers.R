@@ -42,7 +42,7 @@ animal_trait_resolvers <- list(
           ubag_tolerance_resolved == "Moderate" ~ "Moderate",
           
           # Low only imputed for birds
-          ubag_tolerance_resolved == "Low" & ala_class == "Aves" ~ "Low",
+          ubag_tolerance_resolved == "Low" & class == "Aves" ~ "Low",
           
           TRUE ~ NA_character_
         )
@@ -108,7 +108,7 @@ animal_trait_resolvers <- list(
       dplyr::mutate(
         connectivity_resolved = case_when(
           !is.na(bb_Mig) ~ bb_Mig,
-          is.na(bb_Mig) & ala_class == "Aves" ~ 0,
+          is.na(bb_Mig) & class == "Aves" ~ 0,
           TRUE ~ NA_real_
         )
       )
@@ -188,15 +188,15 @@ animal_trait_resolvers <- list(
   is_mammal = \(data) {
     data |>
       dplyr::mutate(
-        is_mammal = stringr::str_to_lower(ala_class) == "mammalia"
+        is_mammal = stringr::str_to_lower(class) == "mammalia"
       )
   },
   
   is_flying = \(data) {
     data |>
       dplyr::mutate(
-        is_flying = stringr::str_to_lower(ala_class) == "aves" |
-          stringr::str_to_lower(ala_order) == "chiroptera"
+        is_flying = stringr::str_to_lower(class) == "aves" |
+          stringr::str_to_lower(order) == "chiroptera"
       )
   },
   
@@ -219,7 +219,7 @@ animal_trait_resolvers <- list(
         flight_height_resolved = dplyr::case_when(
           !is_flying ~ "No exposure",
           # bat
-          ala_order %in% "Chiroptera" ~ bat_proxy(species, "flight_height"),
+          order %in% "Chiroptera" ~ bat_proxy(species, "flight_height"),
           # bird
           is_flying ~ avis_Exp
         ),
@@ -262,7 +262,7 @@ animal_trait_resolvers <- list(
         wingload_resolved = dplyr:: case_when(
           !is_flying ~ "No exposure",
           # bat
-          ala_order %in% "Chiroptera" ~ bat_proxy(species, "wing_loading"),
+          order %in% "Chiroptera" ~ bat_proxy(species, "wing_loading"),
           # bird
           is_flying %in% FALSE | wingload <= 25 | wingload > 90 ~ "Low",
           wingload > 25 & wingload <= 40 ~ "Moderate",
@@ -277,7 +277,7 @@ animal_trait_resolvers <- list(
       aspect_ratio_resolved = dplyr::case_when(
         !is_flying ~ "No exposure",
         # bat
-        ala_order %in% "Chiroptera" ~ bat_proxy(species, "aspect_ratio"),
+        order %in% "Chiroptera" ~ bat_proxy(species, "aspect_ratio"),
         # bird
         is_flying %in% FALSE | aspect_ratio <= 6 ~ "Low",
         aspect_ratio > 6 & aspect_ratio <= 8 ~ "Moderate",
@@ -357,8 +357,8 @@ animal_trait_resolvers <- list(
         
         freshwatersp_resolved = dplyr::case_when(
           # amphibians
-          ala_class == "Amphibia" ~ "High",
-          ala_class == "Actinopterygii" & has_freshwater_habitat ~ "High",
+          class == "Amphibia" ~ "High",
+          class == "Actinopterygii" & has_freshwater_habitat ~ "High",
 
           has_freshwater_habitat ~ "Moderate",
           

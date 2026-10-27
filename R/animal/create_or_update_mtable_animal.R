@@ -1,5 +1,5 @@
 #' Creates or updates the animal manual-coding table (wide format) directly
-#' from animal_traits_resolved. Only columns that currently have at least one
+#' from animal_trait_resolved. Only columns that currently have at least one
 #' NA are included on first creation (no point asking someone to manually code
 #' a trait the database already resolved for every species). Safe to re-run:
 #'   - existing manually-entered values are NEVER overwritten (except
@@ -11,14 +11,14 @@
 #'   - new trait columns (newly-NA somewhere) are appended, blank
 #'   - trait columns that later become fully-resolved are still RETAINED
 #'     (not dropped), so any manual work already done on them isn't lost
-#'   - species that drop out of animal_traits_resolved are kept as
+#'   - species that drop out of animal_trait_resolved are kept as
 #'     historical rows, not deleted
 #'
-#' @param animal_traits_resolved The database-derived resolved-traits table,
+#' @param animal_trait_resolved The database-derived resolved-traits table,
 #'   one row per species.
 #' @param path Output CSV path — this IS the manually-edited file.
 #' @param id_col Species identifier column.
-#' @param context_cols Metadata columns refreshed from animal_traits_resolved
+#' @param context_cols Metadata columns refreshed from animal_trait_resolved
 #'   on every run (never manually edited, so safe to overwrite).
 #' @param fill_placeholders Character vector of manual values that mean "not
 #'   really coded yet" (e.g. "unknown"). A cell holding one of these is
@@ -26,10 +26,10 @@
 #'   NA the placeholder is kept. Default is none, so only NA/blank cells are
 #'   backfilled.
 create_or_update_mtable_animal <- function(
-    animal_traits_resolved,
+    animal_trait_resolved,
     path,
     id_col = "species",
-    context_cols = c("ala_class", "ala_order", "ala_vernacular_name", "epbc"),
+    context_cols = c("class", "order", "common", "epbc_rating"),
     fill_placeholders = character(0)
 ) {
   
@@ -37,7 +37,7 @@ create_or_update_mtable_animal <- function(
   # The manual CSV is always read back as all-character, so the database
   # table is coerced to match. Otherwise coalesce()/bind_rows() can fail on
   # logical (e.g. epbc) or numeric trait columns vs character.
-  db <- animal_traits_resolved |>
+  db <- animal_trait_resolved |>
     dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
   
   trait_cols <- db |>
@@ -64,6 +64,18 @@ create_or_update_mtable_animal <- function(
     col_types = readr::cols(.default = readr::col_character()),
     na = c("", "NA")
   )
+  
+  ## pad existing with any context columns it's missing -- e.g. a column was ##
+  ## renamed in animal_trait_resolved since this file was last written ##
+  # context cols are always refreshed from the database for matched/new rows
+  # anyway, so NA here only actually affects the dropped-rows (historical)
+  # branch below
+  missing_context_cols <- setdiff(context_cols, names(existing))
+  if (length(missing_context_cols) > 0) {
+    existing <- missing_context_cols |>
+      purrr::reduce(\(tbl, col) dplyr::mutate(tbl, !!col := NA_character_), .init = existing)
+    message("Context column(s) added to existing table (renamed upstream?): ", paste(missing_context_cols, collapse = ", "))
+  }
   
   metadata_cols <- c(id_col, context_cols)
   existing_trait_cols <- setdiff(names(existing), metadata_cols)
@@ -132,7 +144,7 @@ create_or_update_mtable_animal <- function(
   new_rows <- current_padded |>
     dplyr::filter(.data[[id_col]] %in% new_species)
   
-  ## species no longer in animal_traits_resolved ##
+  ## species no longer in animal_trait_resolved ##
   # retained as historical rows exactly as last recorded
   dropped_rows <- existing_padded |>
     dplyr::filter(!(.data[[id_col]] %in% current_padded[[id_col]])) |>

@@ -17,7 +17,6 @@ tar_source("../Status/R/setup")
 # targets -------
 
 concern <- tar_read(concern, store = tars$setup$store)
-concern_subsp_epbc <- tar_read(concern_subsp_epbc, store = tars$setup$store)
 rec_summary_pilot <- tar_read(rec_summary_pilot, store = tars$setup$store)
 
 tar_plan(
@@ -36,7 +35,7 @@ tar_plan(
     plant_trait_raw,
     extract_austraits_matrix(
       austraits_traits = readRDS(austraits)$traits,
-      taxa = concern$species[concern$ala_class == "Equisetopsida"],
+      taxa = concern$species[concern$class == "Equisetopsida"],
       traits = c("seedbank_longevity_class",
                  "seedbank_longevity",
                  "bud_bank_location",
@@ -76,11 +75,10 @@ tar_plan(
     read = readRDS(!!.x) |>
       join_plant_imputed(
         raw     = plant_trait_raw$matrix,
-        concern = dplyr::filter(concern, kingdom == "Plantae"),
-        subsp   = dplyr::filter(concern_subsp_epbc, kingdom == "Plantae")
+        concern = dplyr::filter(concern, kingdom == "Plantae")
       )
   ),
-  
+
   ## MANUAL CHECK ------
   tar_target(
     plant_mtable_path,
@@ -90,9 +88,20 @@ tar_plan(
       path
     },
     format = "file"
-  )
+  ),
   
   ## PROCESSED ------
+  # read in overrides and replace imputed values
+  tarchetypes::tar_file_read(
+    plant_trait_final,
+    "data/plant_overrides.csv",
+    readr::read_csv(!!.x) |>
+      apply_plant_overrides(trait_imputed = plant_trait_imputed, 
+                            add_missing_traits = TRUE) |>
+      dplyr::select(-dplyr::ends_with("_raw")) |> 
+      readr::type_convert()
+      # apply_plant_trait_resolvers()
+    ),
   
   ## SCORED ------
   

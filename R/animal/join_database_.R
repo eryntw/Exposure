@@ -127,7 +127,7 @@ join_database_ <- function(A,
     dplyr::mutate(match = "un_r3")
   
   ## ---- Combine ----
-  unwanted_cols <- c("match", "taxa", "name_type", "S_Genus", "S_Species",
+  unwanted_cols <- c("match", "name_type", "S_Genus", "S_Species",
                      "B_Genus", "B_Species", "B_common", "common_dist")
   
   combined <- dplyr::bind_rows(match1, match2, syn_matches) %>% 

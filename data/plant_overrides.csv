@@ -1,6 +1,47 @@
-taxon_name;trait;corrected_value;source
-Caladenia brumalis;seedling_establishment_conditions;mycorrhizal;https://www.researchgate.net/publication/248899064_Propagation_and_reintroduction_of_Caladenia
-Caladenia gladiolata;seedling_establishment_conditions;mycorrhizal;https://www.researchgate.net/publication/248899064_Propagation_and_reintroduction_of_Caladenia
-Caladenia tensa;seedling_establishment_conditions;mycorrhizal;https://www.researchgate.net/publication/248899064_Propagation_and_reintroduction_of_Caladenia
-Caladenia xantholeuca;seedling_establishment_conditions;mycorrhizal;https://www.researchgate.net/publication/248899064_Propagation_and_reintroduction_of_Caladenia
-Codonocarpus pyramidalis;seedling_establishment_conditions;establish_post_fire;https://syzygium.xyz/saplants/Gyrostemonaceae/Codonocarpus/Codonocarpus_pyramidalis.html
+taxon_name,trait,corrected_value,source
+Caladenia brumalis,seedling_establishment_conditions,mycorrhiza,https://www.researchgate.net/publication/248899064_Propagation_and_reintroduction_of_Caladenia
+Caladenia gladiolata,seedling_establishment_conditions,mycorrhiza,https://www.researchgate.net/publication/248899064_Propagation_and_reintroduction_of_Caladenia
+Caladenia tensa,seedling_establishment_conditions,mycorrhiza,https://www.researchgate.net/publication/248899064_Propagation_and_reintroduction_of_Caladenia
+Caladenia xantholeuca,seedling_establishment_conditions,mycorrhiza,https://www.researchgate.net/publication/248899064_Propagation_and_reintroduction_of_Caladenia
+Codonocarpus pyramidalis,seedling_establishment_conditions,establish_post_fire,https://syzygium.xyz/saplants/Gyrostemonaceae/Codonocarpus/Codonocarpus_pyramidalis.html
+Hibbertia crispula,seedling_establishment_conditions,establish_post_fire,https://www.alcoa.com/australia/en/pdf/hibbertia-germination-factsheet.pdf
+Limosella granitica,seedling_establishment_conditions,flood,https://spapps.environment.sa.gov.au/seedsofsa/speciesinformation.html?rid=2686
+Olearia pannosa,seedling_establishment_conditions,establish_post_fire,https://cdn.environment.sa.gov.au/landscape/docs/ep/recovery-flora-plan.pdf
+Prasophyllum pallidum,seedling_establishment_conditions,mycorrhiza,
+Prasophyllum validum,seedling_establishment_conditions,mycorrhiza,
+Pterostylis mirabilis,seedling_establishment_conditions,mycorrhiza,
+Pterostylis xerophila,seedling_establishment_conditions,mycorrhiza,
+Veronica parnkalliana,seedling_establishment_conditions,establish_post_fire,https://www.bgci.org/files/Dunedin2013/Proceedings/Horticultural%20Changes/Guerin%20Germination%20of%20Veronica%20pallarkaniana.pdf
+Acacia carneorum,seedling_establishment_conditions,major rainfall,https://threatenedspecies.bionet.nsw.gov.au/profile?id=10007
+Solanum karsense,seedling_establishment_conditions,major rainfall,https://en.wikipedia.org/wiki/Solanum_karsense
+Xerothamnella parvifolia,seedling_establishment_conditions,major rainfall,https://threatenedspecies.bionet.nsw.gov.au/profile?id=10844
+Swainsona murrayana,bud_bank_location,yes,https://threatenedspecies.bionet.nsw.gov.au/profile?id=10779
+Acacia cretacea,grazing_pressure,high,
+Acacia enterocarpa,grazing_pressure,high,
+Acacia rhetinocarpa,grazing_pressure,high,
+Brachyscome muelleri,grazing_pressure,high,
+Codonocarpus pyramidalis,plant_physical_defence_structures,chemical,https://threatenedspecies.bionet.nsw.gov.au/profile?id=20225
+Caladenia brumalis,grazing_pressure,high,https://www.dcceew.gov.au/sites/default/files/documents/12-orchid.pdf
+Caladenia gladiolata,grazing_pressure,high,https://www.dcceew.gov.au/sites/default/files/documents/12-orchid.pdf
+Caladenia tensa,grazing_pressure,high,https://www.dcceew.gov.au/sites/default/files/documents/12-orchid.pdf
+Caladenia xantholeuca,grazing_pressure,high,https://www.dcceew.gov.au/sites/default/files/documents/12-orchid.pdf
+Codonocarpus pyramdalis,grazing_pressure,high,https://threatenedspecies.bionet.nsw.gov.au/profile?id=20225
+Hibbertia crispula,grazing_pressure,high,https://www.environment.gov.au/biodiversity/threatened/species/pubs/15222-conservation-advice.pdf
+Limosella granitica,grazing_pressure,low,https://cdn.environment.sa.gov.au/landscape/docs/ep/recovery-flora-plan.pdf
+Olearia pannosa,grazing_pressure,high,https://cdn.environment.sa.gov.au/landscape/docs/ep/recovery-flora-plan.pdf
+Prasophyllum pallidum,grazing_pressure,high,
+Prasophyllum validum,grazing_pressure,high,
+Pterostylis mirabilis,grazing_pressure,high,
+Pterostylis xerophila,grazing_pressure,high,
+Senecio megaglossus,grazing_pressure,high,https://www.environment.gov.au/biodiversity/threatened/species/pubs/13374-conservation-advice.pdf
+Swainsona pyrophila,grazing_pressure,low,https://www.environment.gov.au/biodiversity/threatened/species/pubs/56344-conservation-advice-20082024.pdf
+Veronica parnkalliana,grazing_pressure,low,https://www.environment.gov.au/biodiversity/threatened/species/pubs/17458-conservation-advice-05052016.pdf
+Acacia carneorum,grazing_pressure,high,https://www.environment.gov.au/biodiversity/threatened/species/pubs/66685-conservation-advice.pdf
+Acacia menzelii,grazing_pressure,high,https://www.environment.gov.au/biodiversity/threatened/species/pubs/9218-conservation-advice.pdf
+Acacia carneorum,plant_physical_defence_structures,sharp_pointed_defence,https://threatenedspecies.bionet.nsw.gov.au/profile?id=10007
+Solanum karsense,grazing_pressure,high,https://www.environment.gov.au/biodiversity/threatened/species/pubs/7776-conservation-advice.pdf
+Swainsona murrayana,grazing_pressure,high,https://www.environment.gov.au/biodiversity/threatened/species/pubs/6765-conservation-advice.pdf
+Xerothamnella parvifolia,grazing_pressure,high,https://www.environment.gov.au/biodiversity/threatened/species/pubs/3141-conservation-advice.pdf
+Olearia pannosa subsp. pannosa,grazing_pressure,high,https://www.environment.gov.au/biodiversity/threatened/species/pubs/12348-conservation-advice.pdf
+Frankenia plicata,grazing_pressure,moderate,https://www.environment.gov.au/biodiversity/threatened/species/pubs/4225-conservation-advice.pdf
+Swainsona murrayana,plant_physical_defence_structures,chemical,https://threatenedspecies.bionet.nsw.gov.au/profile?id=10779

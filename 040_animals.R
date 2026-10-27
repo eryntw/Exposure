@@ -18,21 +18,17 @@ tar_source("../Status/R/setup")
 
 concern <- tar_read(concern, store = tars$setup$store)
 animaldb <- tar_read(animaldb, store = tars$animaldb$store)
-concern_subsp_epbc <- tar_read(concern_subsp_epbc, store = tars$setup$store)
 rec_summary_pilot <- tar_read(rec_summary_pilot, store = tars$setup$store)
 
 tar_plan(
   
   ## PROCESSED ------
   
-  # Full table: resolved database species + ALL concern_subsp_epbc rows
+  # Full table: resolved database species
   tar_target(
     animal_trait_resolved,
     animaldb |>
       resolve_animal_traits() |>
-      dplyr::mutate(taxa = species) |>
-      dplyr::bind_rows(concern_subsp_epbc |> 
-                         dplyr::filter(kingdom == "Animalia")) |>
       dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
   ),
   
@@ -42,9 +38,11 @@ tar_plan(
   tar_target(
     animal_mtable_path,
     animal_trait_resolved |>
-      dplyr::filter(is.na(kingdom) | kingdom == "Animalia") |>
       dplyr::distinct(species, .keep_all = TRUE) |>
-      create_or_update_mtable_animal(path = fs::path("data", "animal_mtable.csv")),
+      create_or_update_mtable_animal(
+        path = fs::path("data", "animal_mtable.csv"),
+        id_col = "species",
+        context_cols = c("class", "order", "common", "epbc_rating")),
     format = "file"
   ),
   
@@ -56,10 +54,13 @@ tar_plan(
   
   tar_target(
     animal_trait_final,
-    apply_manual_overrides_animal(
+    apply_animal_overrides(
       animal_trait_resolved,
       animal_mtable,
-      id_col = "species"
+      id_col = "species",
+      context_cols = c("class", "order", "common", "epbc_rating"),
+      no_inherit = c("taxa", "kingdom"),
+      add_missing_traits = TRUE
     )
   ),
   
@@ -91,7 +92,7 @@ tar_plan(
       
       animal_trait_final |> 
         dplyr::select(dplyr::any_of(c("taxa", "species", 
-                                      "ala_class", "ala_vernacular_name",
+                                      "class", "common",
                                       proc_vars))) |> 
         recode_scores_animal(
           low      = c("irruptive", "once a year", "diurnal", "Lv2"),

@@ -12,7 +12,7 @@
 flag_missing_traits_wide <- function(
     animal_traits_resolved,
     id_col = "species",
-    context_cols = c("ala_class", "ala_order", "ala_vernacular_name", "epbc")
+    context_cols = c("class", "order", "common", "epbc_rating")
 ) {
   animal_traits_resolved |>
     dplyr::select(dplyr::all_of(c(id_col, context_cols)), dplyr::matches("_resolved$|_lit$")) |>

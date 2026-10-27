@@ -12,9 +12,11 @@ tars <- yaml::read_yaml("_targets.yaml")
 
 # tar source -------
 tar_source()
-tar_source("../Status/R/setup")
+tar_source("../Pressure/R/setup")
 
 # targets -------
+
+kingdom_lookup <- tar_read(kingdom_lookup, store = tars$RecExtract$RecExtr$store)
 
 tar_plan(
   
@@ -22,38 +24,25 @@ tar_plan(
   
   ## Track PIA output ----
   tar_target(cpath_usg, 
-             fs::path(tars$envPIA_b$setup$store, "objects", "concern"), 
+             fs::path(tars$envPIA$concern$store, "objects", "concern"), 
              format = "file"),
   tar_target(fpath_usg, 
-             fs::path(tars$envPIA_b$final$store, "objects", "final"), 
+             fs::path(tars$envPIA$final$store, "objects", "final"), 
              format = "file"),
   
   tar_target(cpath_bp, update_boundary_path(cpath_usg, 2), format = "file"),
   tar_target(fpath_bp, update_boundary_path(fpath_usg, 2), format = "file"),
   
-  ## Read ----
+  ## Read concern ----
   tar_target(
-    concern, ## Species only
+    concern, ## species
     dplyr::bind_rows(
       readRDS(cpath_usg),
       readRDS(cpath_bp)
     ) |>
-      dplyr::select(-aoi_cont, -taxa, -common_vals) |>
+      dplyr::select(-aoi_cont, -common_vals, -kingdom) |>
       dplyr::distinct() |>
-      classify_species(search_term_col = "species")
-  ),
-
-  tar_target(
-    concern_subsp_epbc, ## Subspecies listed in EPBC only
-    dplyr::bind_rows(
-      readRDS(cpath_usg),
-      readRDS(cpath_bp)
-    ) |>
-      dplyr::mutate(.word_count = lengths(strsplit(taxa, "\\s+"))) |>
-      dplyr::filter(.word_count > 2, epbc == TRUE) |> 
-      dplyr::distinct() |> 
-      classify_species(search_term_col = "species")
-    
+      classify_species(kingdom_lookup, search_term_col = "taxa")
   ),
 
   tar_target(
@@ -74,12 +63,12 @@ tar_plan(
   ),
 
   tar_target(
-    rec_summary_pilot, # Species Level for Trait Mapping
+    rec_summary_pilot,
     {
       rec_summary_combined <- readRDS(rec_summary_path) |>
         combine_named_list_prefixed(id_cols = "taxa")
       dplyr::left_join(concern, rec_summary_combined,
-                       by = c("species" = "taxa")) # 23 spp have no summary
+                       by = c("species" = "taxa"))
     }
   )
 )

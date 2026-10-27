@@ -12,7 +12,7 @@ tars <- yaml::read_yaml("_targets.yaml")
 
 # tar source -------
 tar_source()
-tar_source("../Status/R/iucn")
+tar_source("../Pressure/R/iucn")
 
 # targets -------
 
@@ -64,7 +64,7 @@ tar_plan(
     fs::path(db_dir, "bird", "wingspan_data.xlsx"),
     readxl::read_excel(!!.x, sheet = "wingspan data") |> 
       clean_exp_df(
-        taxacol = Species1,
+        taxacol = Species1, # Species1 is correct col name
         select  = c(
           dplyr::any_of(c(
             "wingspan_reported_mid_all", "wingspan_predicted_global",
@@ -216,7 +216,7 @@ tar_plan(
   tar_target(
     animaldb,
     concern |>
-      dplyr::filter(ala_kingdom == "Animalia") |> 
+      dplyr::filter(kingdom == "Animalia") |> 
       join_database_(birdbase, prefix = "bb_", syn_db = syn_db) |>
       join_database_(avistep, prefix = "avis_", syn_db = syn_db) |>
       join_database_(wingspan, prefix = "ws_", syn_db = syn_db) |>

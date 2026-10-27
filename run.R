@@ -12,29 +12,22 @@ envFunc::check_packages(yaml::read_yaml("settings/packages.yaml") |>
 # tars --------
 
 ## local ------
-store_base <- envFunc::get_env_dir() |>
-  fs::path_rel() |>
-  fs::path(if(grepl("\\/prod\\/", here::here())) "prod" else "dev"
-           , "out"
-  )
 
 tars_local <- envTargets::make_tars(settings = envFunc::extract_scale("Exposure"),
-                                    save_yaml = FALSE,
-                                    store_base = store_base)
+                                    save_yaml = FALSE)
 
 ## Other projects ------
 tars_rec <- envTargets::make_tars(settings = envFunc::extract_scale("RecExtract"),
                                   project_base = fs::path("..", "RecExtract"),
-                                  local = FALSE,
-                                  list_names = "store")
+                                  local = FALSE)
 
-tars_pia <- envTargets::make_tars(settings = envFunc::extract_scale("envPIA_b"),
-                                   project_base = fs::path("..", "envPIA_b"),
+tars_pia <- envTargets::make_tars(settings = envFunc::extract_scale("envPIA"),
+                                   project_base = fs::path("..", "envPIA"),
                                    local = FALSE,
                                    list_names = c("extent", "grain", "aoi"))
 
-tars_status <- envTargets::make_tars(settings = envFunc::extract_scale("Status"),
-                                     project_base = fs::path("..", "Status"),
+tars_status <- envTargets::make_tars(settings = envFunc::extract_scale("Pressure"),
+                                     project_base = fs::path("..", "Pressure"),
                                      local = FALSE)
 
 tars = c(tars_local, tars_rec, tars_pia, tars_status)

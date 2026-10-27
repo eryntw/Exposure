@@ -29,55 +29,122 @@ resolve_reproductive_maturity <- \(x, source_col = "reproductive_maturity") {
 
 resolve_dispersal_syndrome <- \(x) {
   # TODO: used by more than one rule - keep a single resolved column
-  rep(NA_character_, nrow(x))
 }
 
-resolve_plant_growth_form <- \(x) {
-  # TODO: used by several rules - keep a single resolved column
-  rep(NA_character_, nrow(x))
+
+## Plant growth form ##
+## Raw values look like "shrub; shrub tree; tree":
+##   - ";" separates entries (one per source record)
+##   - spaces within an entry separate tokens, i.e. that record says the plant is
+##     BOTH forms (e.g. "shrub tree")
+## Each token is mapped to tree / shrub / herb, each entry casts one vote per
+## distinct group it contains, and the group with the most votes wins.
+
+growth_form_group_map <- c(
+  tree = "tree",
+  mallee = "tree",
+  shrub = "shrub",
+  hummock = "shrub",
+  subshrub = "shrub",
+  tussock = "shrub",
+  herb = "herb",
+  forb = "herb",
+  graminoid = "herb",
+  graminoid_not_tussock = "herb"
+)
+# Tokens not in the map (e.g. fern, climber, palmoid, basal_large) cast no vote;
+# a row whose tokens are all unmapped resolves to NA.
+
+resolve_growth_form <- \(
+  x,
+  source_col = "plant_growth_form",
+  tie_order = c("tree", "shrub", "herb") # tie-break direction
+) {
+  purrr::map_chr(x[[source_col]], \(s) {
+    if (is.na(s)) {
+      return(NA_character_)
+    }
+    
+    # one set of distinct groups per ";" entry, so "graminoid herb" is one herb vote
+    votes <- strsplit(s, ";", fixed = TRUE)[[1]] |>
+      purrr::map(\(e) unique(growth_form_group_map[strsplit(trimws(e), "\\s+")[[1]]])) |>
+      unlist() |>
+      unname()
+    votes <- votes[!is.na(votes)]
+    
+    if (length(votes) == 0) {
+      return(NA_character_)
+    }
+    
+    # most votes wins; ties go to the first group in tie_order
+    counts <- table(factor(votes, levels = tie_order))
+    tie_order[as.vector(counts) == max(counts)][1]
+  })
 }
 
-resolve_leaf_mass_per_area <- \(x) {
-  # TODO: numeric (g/m2) - check units across sources
-  rep(NA_real_, nrow(x))
+resolve_leaf_mass_per_area <- \(x, source_col = "leaf_mass_per_area") {
+  lma <- x[[source_col]]
+  
+  dplyr::case_when(
+    lma < 70 ~ "Low",
+    lma <= 150 ~ "Moderate",
+    lma > 150 ~ "High"
+  )
 }
 
-resolve_recruitment_special_event <- \(x) {
-  # TODO
-  rep(NA_character_, nrow(x))
+resolve_recruit_special <- \(x, source_col = "seedling_establishment_conditions") {
+  value <- x[[source_col]]
+  
+  dplyr::case_when(
+    value == "establish_post_fire" ~ "fire",
+    value %in% c("fire", "flood", "mycorrhiza", "major rainfall") ~ value,
+    value == establish_anytime ~ "none"
+  )
 }
 
-resolve_recruitment_peak_invasion <- \(x) {
-  # TODO
-  rep(NA_character_, nrow(x))
+is_herb <- \(x) {
+  gf <- x[[growth_form]]
+  
+  dplyr::case_when(
+    gf == "herb" ~ 1,
+    TRUE ~ 0)
 }
 
-resolve_pollination <- \(x) {
-  # TODO
-  rep(NA_character_, nrow(x))
+# pollination_syndrome: no resolver required
+
+resolve_defence <- \(x) {
+  d <- x[[plant_physical_defence_structures]]
+  
+  dplyr::case_when(
+    d %in% c("sharp_pointed_defence", "stinging_hair") ~ "physical",
+    d %in% c("tannin", "silica", "alkaloid") ~ "chemical",
+    TRUE ~ "none")
 }
 
-resolve_plant_physical_defence_structures <- \(x) {
-  # TODO
-  rep(NA_character_, nrow(x))
-}
+## rec_summary_pilot resolvers ##
 
+resolve_ubag_prop <- \(x, source_col = "landuse_prop_modified") {
+  prop <- x[[source_col]]
+  
+  dplyr::case_when(
+    prop < 0.1 ~ "Low",
+    prop < 0.5 ~ "Moderate",
+    prop >= 0.5 ~ "High"
+  )
+}
 
 ## Registry ##
 ## Names are the output column names (the "_resolved" columns referenced by Rule_plant).
 
 plant_trait_resolvers <- list(
-  seedbank_persistence_resolved = resolve_seedbank_persistence,
-  bud_bank_location_resolved = resolve_bud_bank_location,
-  seed_dry_mass_resolved = resolve_seed_dry_mass,
   reproductive_maturity_resolved = resolve_reproductive_maturity,
   dispersal_syndrome_resolved = resolve_dispersal_syndrome,
-  plant_growth_form_resolved = resolve_plant_growth_form,
+  growth_form_resolved = resolve_growth_form,
   leaf_mass_per_area_resolved = resolve_leaf_mass_per_area,
-  recruitment_special_event_resolved = resolve_recruitment_special_event,
-  recruitment_peak_invasion_resolved = resolve_recruitment_peak_invasion,
-  pollination_resolved = resolve_pollination,
-  plant_physical_defence_structures_resolved = resolve_plant_physical_defence_structures
+  recruit_special_resolved = resolve_recruit_special,
+  herb_resolved = is_herb,
+  defence_resolved = resolve_defence,
+  ubag_prop_resolved = resolve_ubag_prop
 )
 
 

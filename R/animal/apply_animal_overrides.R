@@ -7,9 +7,9 @@
 #' @section Row identity:
 #' `species` is binomial and is the key used to match the mtable.
 #' `taxa` is the unique row key: `taxa == species` marks a species-level row
-#' (the "parent"), and `taxa != species` (a trinomial) marks a subspecies row
-#' that came in with `concern_subsp_epbc`. `species` therefore repeats by
-#' design, so check duplicates on `taxa`.
+#' (the "parent"), and `taxa != species` (a trinomial) marks a subspecies row.
+#' Both kinds of row come from the single `concern` table. `species` therefore
+#' repeats by design, so check duplicates on `taxa`.
 #'
 #' @section What happens:
 #' 1. **Inherit.** Subspecies rows fill their NA cells from the parent
@@ -22,33 +22,34 @@
 #' 3. **Restore types.** `readr::type_convert()` is applied once at the end,
 #'    since both inputs are all-character.
 #'
-#' @section Why `context_cols` and `no_inherit` are separate:
-#' `context_cols` (e.g. `epbc`) are excluded from BOTH inheriting and the mtable
-#' override. They describe the specific taxon, so a subspecies must keep its own
-#' value; the mtable holds one value per species and would overwrite it.
-#' `no_inherit` columns (e.g. `taxa`, `kingdom`) are excluded from inheriting
-#' only. Add any other subspecies-specific columns that arrive with
-#' `concern_subsp_epbc` here (listing status, dates, etc.).
-#'
 #' @section Notes:
 #' - Mtable columns missing from `animal_traits_resolved` (e.g.
-#'   `extinct_mainland`)
-apply_manual_overrides_animal <- function(
+#'   `extinct_mainland`) are created when `add_missing_traits = TRUE` (the
+#'   default), so the output has every mtable column. With `FALSE` they are
+#'   skipped, so only traits already in the resolved table are overridden.
+#' - Species with no species-level row (only subspecies, or not in `animaldb`)
+#'   have no parent to inherit from and rely on the mtable for their values.
+apply_animal_overrides <- function(
     animal_traits_resolved,
     animal_mtable,
     id_col = "species",
-    context_cols = c("ala_class", "ala_order", "ala_vernacular_name", "epbc"),
-    no_inherit = c("taxa", "kingdom")
+    context_cols = c("class", "order", "common", "epbc"),
+    no_inherit = c("taxa", "kingdom"),
+    add_missing_traits = TRUE
 ) {
   # columns a subspecies may inherit from its parent species row
   inherit_cols <- setdiff(names(animal_traits_resolved),
                           c(id_col, context_cols, no_inherit))
   # columns coded in the mtable (manual values win)
   mtable_cols <- setdiff(names(animal_mtable), c(id_col, context_cols))
+  # optionally skip mtable columns that are not already in the resolved table
+  if (!add_missing_traits) {
+    mtable_cols <- intersect(mtable_cols, names(animal_traits_resolved))
+  }
   
   # 1. subspecies (taxa != species) inherit from the parent row (taxa == species)
   parents <- animal_traits_resolved |>
-    dplyr::filter(taxa == .data[[id_col]]) |>
+    dplyr::filter(is.na(taxa) | taxa == .data[[id_col]]) |>
     dplyr::distinct(.data[[id_col]], .keep_all = TRUE)
   p_idx <- match(animal_traits_resolved[[id_col]], parents[[id_col]])
   

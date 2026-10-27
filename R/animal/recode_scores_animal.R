@@ -30,7 +30,7 @@ recode_scores_animal <- function(
   
   #### Preparation before string replacement ####
   
-  stopifnot(all(c("hb_lit", "activity_resolved", "ala_class") %in% names(data)))
+  stopifnot(all(c("hb_lit", "activity_resolved", "class") %in% names(data)))
   
   ## Habitat list to habitat count
   data$hb_count <- purrr::map_int(
@@ -44,8 +44,8 @@ recode_scores_animal <- function(
   
   ## Translate activity into roadkill risk
   data$activity_resolved <- dplyr::if_else(
-    !is.na(data$ala_class) & 
-      !(data$ala_class %in% c("Aves", "Mammalia", "Reptilia", "Amphibia")),
+    !is.na(data$class) & 
+      !(data$class %in% c("Aves", "Mammalia", "Reptilia", "Amphibia")),
     "No exposure",
     as.character(data$activity_resolved)
   )
