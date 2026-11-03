@@ -30,8 +30,12 @@ plant_trait_scorers <- list(
   
   seedmass = num, # log10 left to COINr
   
-  maturity = \(x) findInterval(num(x), c(2, 5, 10),
-                               left.open = TRUE) + 1, # <=2, >2, >5, >10 y -> 1-4
+  maturity = \(x) dplyr::case_match(lc(x),
+                                    "very short" ~ 1,   # <=2 y
+                                    "short"      ~ 2,   # >2
+                                    "moderate"   ~ 3,   # >5
+                                    "long"       ~ 4    # >10
+  ),
   
   dispersal = \(x) dplyr::case_match(lc(x),
                                      "low"           ~ 1,
@@ -60,8 +64,11 @@ plant_trait_scorers <- list(
   ## Concentrated herbivory pressure ##
   defence = \(x) na_keep(x, !lc(x) == "absent"), # no effective defence 0; any 1
   
-  ## Pollution: land-use proportion, <10% = 3, <50% = 2, >50% = 1 ##
-  specialisation = \(x) c(3, 2, 1)[findInterval(num(x), c(0.1, 0.5)) + 1]
+  tolerance = \(x) dplyr::case_match(lc(x),
+                                          "low"      ~ 3,   # <10% land use
+                                          "moderate" ~ 2,   # <50%
+                                          "high"     ~ 1    # >50%
+  )
 )
 
 #' @param data Trait table (e.g. plant_trait_final), one row per taxon.
