@@ -71,12 +71,6 @@ tar_plan(
     readxl::read_excel(!!.x, sheet = "Rule_animal")
   ),
   
-  tarchetypes::tar_file_read(
-    iMeta_animal,
-    "/mnt/envshare/data/traits/meta/ExposureTraits.xlsx", 
-    readxl::read_excel(!!.x, sheet = "iMeta_animal")
-  ), 
-  
   tar_target(
     animal_trait_scored,
     {

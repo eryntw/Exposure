@@ -7,13 +7,14 @@
 ## if it differs (e.g. if those return the whole data frame rather than a vector).
 
 
+## Pass-through resolvers ##
+## No rules to apply: the column is copied unchanged under the "_resolved" name.
+pass_through <- \(col) {
+  force(col)
+  \(x) x[[col]]
+}
+
 ## Individual resolvers ##
-
-# seedbank_longevity_class: no resolver required
-
-# bud_bank_location: no resolver required
-
-# seed_dry_mass: no resolver required. Need to be log transformed in scored.
 
 resolve_reproductive_maturity <- \(x, source_col = "reproductive_maturity") {
   years <- x[[source_col]]
@@ -26,11 +27,6 @@ resolve_reproductive_maturity <- \(x, source_col = "reproductive_maturity") {
     )
   )
 }
-
-resolve_dispersal_syndrome <- \(x) {
-  # TODO: used by more than one rule - keep a single resolved column
-}
-
 
 ## Plant growth form ##
 ## Raw values look like "shrub; shrub tree; tree":
@@ -98,26 +94,22 @@ resolve_recruit_special <- \(x, source_col = "seedling_establishment_conditions"
   dplyr::case_when(
     value == "establish_post_fire" ~ "fire",
     value %in% c("fire", "flood", "mycorrhiza", "major rainfall") ~ value,
-    value == establish_anytime ~ "none"
+    value == "establish_anytime" ~ "none"
   )
 }
 
 is_herb <- \(x) {
-  gf <- x[[growth_form]]
-  
-  dplyr::case_when(
-    gf == "herb" ~ 1,
-    TRUE ~ 0)
+  dplyr::if_else(x[["growth_form_resolved"]] == "herb", 1, 0)
 }
 
 # pollination_syndrome: no resolver required
 
 resolve_defence <- \(x) {
-  d <- x[[plant_physical_defence_structures]]
+  d <- x[["plant_physical_defence_structures"]]
   
   dplyr::case_when(
     d %in% c("sharp_pointed_defence", "stinging_hair") ~ "physical",
-    d %in% c("tannin", "silica", "alkaloid") ~ "chemical",
+    d %in% c("tannin", "silica", "alkaloid", "chemical") ~ "chemical",
     TRUE ~ "none")
 }
 
@@ -138,21 +130,24 @@ resolve_ubag_prop <- \(x, source_col = "landuse_prop_modified") {
 
 plant_trait_resolvers <- list(
   reproductive_maturity_resolved = resolve_reproductive_maturity,
-  dispersal_syndrome_resolved = resolve_dispersal_syndrome,
   growth_form_resolved = resolve_growth_form,
   leaf_mass_per_area_resolved = resolve_leaf_mass_per_area,
   recruit_special_resolved = resolve_recruit_special,
   herb_resolved = is_herb,
   defence_resolved = resolve_defence,
-  ubag_prop_resolved = resolve_ubag_prop
+  ubag_prop_resolved = resolve_ubag_prop,
+  dispersal_syndrome_resolved = pass_through("dispersal_syndrome"),
+  pollination_syndrome_resolved = pass_through("pollination_syndrome"),
+  seedbank_longevity_class_resolved = pass_through("seedbank_longevity_class"),
+  bud_bank_location_resolved = pass_through("bud_bank_location"),
+  seed_dry_mass_resolved = pass_through("seed_dry_mass")
 )
-
 
 ## Applier ##
 ## Runs every resolver and appends its column, with a row-identity guard.
 ## `resolvers` can be subset to test one trait at a time.
 
-apply_plant_trait_resolvers <- function(x, resolvers = plant_trait_resolvers) {
+resolve_plant_traits <- function(x, resolvers = plant_trait_resolvers) {
   purrr::iwalk(resolvers, \(fn, nm) {
     out <- fn(x)
     stopifnot(

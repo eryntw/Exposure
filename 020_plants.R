@@ -18,6 +18,8 @@ tar_source("../Status/R/setup")
 
 concern <- tar_read(concern, store = tars$setup$store)
 rec_summary_pilot <- tar_read(rec_summary_pilot, store = tars$setup$store)
+iucn_data <- tar_read(iucn_data, store = tars$Pressure$iucn$store)
+kingdom_lookup <- tar_read(kingdom_lookup, store = tars$RecExtract$RecExtr$store)
 
 tar_plan(
   
@@ -91,6 +93,22 @@ tar_plan(
   ),
   
   ## PROCESSED ------
+  # classify ias threat
+  tar_target(
+    plant_invasive_threat,
+    {
+      ias_kingdom <- iucn_data$iucn_data |>
+        dplyr::filter(threat_code %in% c("8_1_1", "8_1_2")) |>
+        dplyr::pull(threat_ias) |>
+        lookup_ias_kingdom()
+      classify_invasive_threat(iucn_data$iucn_data, kingdom_lookup, ias_kingdom,
+                               iucn_id_col = "scientific_name", 
+                               lookup_id_col = "taxa", 
+                               kingdom_col = "kingdom",
+                               threat_codes = c("8_1_1", "8_1_2"))
+    }
+  ),
+  
   # read in overrides and replace imputed values
   tarchetypes::tar_file_read(
     plant_trait_final,
@@ -99,10 +117,28 @@ tar_plan(
       apply_plant_overrides(trait_imputed = plant_trait_imputed, 
                             add_missing_traits = TRUE) |>
       dplyr::select(-dplyr::ends_with("_raw")) |> 
-      readr::type_convert()
-      # apply_plant_trait_resolvers()
+      readr::type_convert() |> 
+      dplyr::left_join(rec_summary_pilot |> 
+                         dplyr::select(taxa,
+                                       soil_simpson,
+                                       climate_simpson,
+                                       ibra_name_simpson,
+                                       landuse_prop_modified),
+                       by = c("taxon_name" = "taxa")) |> 
+      resolve_plant_traits()
     ),
   
   ## SCORED ------
+  tarchetypes::tar_file_read(
+    Rule_plant,
+    "/mnt/envshare/data/traits/meta/ExposureTraits.xlsx", 
+    readxl::read_excel(!!.x, sheet = "Rule_plant")
+  ),
   
+  tar_target(plant_trait_scored, 
+             recode_scores_plant(plant_trait_final |> 
+                                   dplyr::select("taxon_name", "species",
+                                                 contains("_resolved"),
+                                                 contains("_simpson")), 
+                                 Rule_plant))
 )

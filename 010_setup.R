@@ -40,7 +40,7 @@ tar_plan(
       readRDS(cpath_usg),
       readRDS(cpath_bp)
     ) |>
-      dplyr::select(-aoi_cont, -common_vals, -kingdom) |>
+      dplyr::select(-aoi_cont, -common_vals, -kingdom, -max_reg_cont) |>
       dplyr::distinct() |>
       classify_species(kingdom_lookup, search_term_col = "taxa")
   ),
@@ -56,19 +56,11 @@ tar_plan(
 
   ## Spatial data from RecExtract ------
 
-  tar_target(
-    rec_summary_path,
-    fs::path(tars$RecExtract$RecExtr$store, "objects", "rec_summary"),
-    format = "file"
-  ),
-
-  tar_target(
+  tarchetypes::tar_file_read(
     rec_summary_pilot,
-    {
-      rec_summary_combined <- readRDS(rec_summary_path) |>
-        combine_named_list_prefixed(id_cols = "taxa")
-      dplyr::left_join(concern, rec_summary_combined,
-                       by = c("species" = "taxa"))
-    }
+    fs::path(tars$RecExtract$RecExtr$store, "objects", "rec_summary"),
+    readRDS(!!.x) |>
+      combine_named_list_prefixed(id_cols = "taxa") |>
+      dplyr::left_join(concern, y = _, by = "taxa")
   )
 )

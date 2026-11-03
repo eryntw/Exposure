@@ -24,17 +24,19 @@
 #' @importFrom dplyr rename_with inner_join all_of
 #' @export
 combine_named_list_prefixed <- function(lst, id_cols = c("taxa", "common")) {
+  dup <- names(lst)[purrr::map_lgl(lst, \(df) anyDuplicated(df[id_cols]) > 0)]
+  if (length(dup) > 0) {
+    stop("elements with repeated ", paste(id_cols, collapse = "/"), ": ", paste(dup, collapse = ", "))
+  }
+  
   lst |>
     purrr::imap(\(df, nm) {
       dplyr::rename_with(
         df,
-        \(x) ifelse(
-          startsWith(x, paste0(nm, "_")),
-          x,                        # already prefixed — leave as-is
-          paste0(nm, "_", x)        # not yet prefixed — add it
-        ),
+        \(x) ifelse(startsWith(x, paste0(nm, "_")), x, paste0(nm, "_", x)),
         .cols = -dplyr::all_of(id_cols)
       )
     }) |>
-    purrr::reduce(\(x, y) dplyr::inner_join(x, y, by = id_cols))
+    purrr::reduce(\(x, y) dplyr::full_join(x, y, by = id_cols, relationship = "one-to-one"))
+  
 }

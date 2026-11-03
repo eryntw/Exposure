@@ -26,11 +26,11 @@ tars_pia <- envTargets::make_tars(settings = envFunc::extract_scale("envPIA"),
                                    local = FALSE,
                                    list_names = c("extent", "grain", "aoi"))
 
-tars_status <- envTargets::make_tars(settings = envFunc::extract_scale("Pressure"),
+tars_pressure <- envTargets::make_tars(settings = envFunc::extract_scale("Pressure"),
                                      project_base = fs::path("..", "Pressure"),
                                      local = FALSE)
 
-tars = c(tars_local, tars_rec, tars_pia, tars_status)
+tars = c(tars_local, tars_rec, tars_pia, tars_pressure)
 
 envTargets::write_tars(tars)
 
